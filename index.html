@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>计量经济学 · 章节测试答题本</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/newsreader@5.2.10/index.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-sans-sc@5.2.10/index.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-serif-sc@5.2.10/index.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.2.8/index.css" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F2EA; --paper-2:#EFEBE0; --surface:#FFFFFF;
+  --ink:#1B2126; --ink-2:#3C444B; --muted:#7A7570; --line:#DCD6C9; --line-2:#EAE5DA;
+  --accent:#1D5B79; --accent-soft:#E4EEF2;
+  --ok:#2C6A4E; --ok-soft:#E6F0EA;
+  --no:#A03A2C; --no-soft:#F8E9E6;
+  --warn:#8A6A1F; --warn-soft:#F6EFDC;
+  --r:10px; --r-lg:16px;
+  --sh:0 1px 2px rgba(27,33,38,.05), 0 8px 24px -16px rgba(27,33,38,.18);
+  --font-display:"Newsreader Variable","Noto Serif SC","Songti SC",STSong,serif;
+  --font-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono Variable",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --measure:74rem;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-body); font-size:16px; line-height:1.75;
+  font-synthesis:none; line-break:strict; overflow-wrap:break-word;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:linear-gradient(0deg,rgba(27,33,38,.028) 1px,transparent 1px);
+  background-size:100% 30px;
+}
+::selection{background:#D8E6EC}
+h1,h2,h3{margin:0; font-family:var(--font-display); font-weight:600; line-height:1.3}
+button{font:inherit; color:inherit; cursor:pointer}
+input{font:inherit; color:inherit}
+
+/* ---------- shell ---------- */
+.wrap{position:relative; z-index:1; max-width:var(--measure); margin:0 auto; padding:0 24px 96px}
+
+/* masthead */
+.mast{border-bottom:1px solid var(--line); padding:34px 0 26px; display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end}
+.eyebrow{font-family:var(--font-mono); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin-bottom:10px}
+h1{font-size:clamp(30px,4.4vw,46px); letter-spacing:-.01em; text-wrap:balance}
+h1 em{font-style:normal; color:var(--accent)}
+.mast p{margin:10px 0 0; color:var(--muted); font-size:14.5px; max-width:46em}
+.mast-meta{text-align:right; font-size:12px; font-family:var(--font-mono); color:var(--muted); line-height:2}
+.mast-meta b{display:block; font-family:var(--font-display); font-size:26px; color:var(--ink); letter-spacing:-.01em}
+
+/* toolbar */
+.bar{position:sticky; top:0; z-index:20; background:rgba(245,242,234,.93); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); margin:0 -24px; padding:10px 24px; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+.chips{display:flex; gap:6px; overflow-x:auto; scrollbar-width:thin; padding:2px 0; flex:1 1 auto; min-width:0}
+.chip{flex:0 0 auto; border:1px solid var(--line); background:var(--surface); border-radius:999px; padding:6px 13px; font-size:13px; white-space:nowrap; display:flex; align-items:center; gap:7px; transition:.16s}
+.chip .n{font-family:var(--font-mono); font-size:11px; color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:#fff}
+.chip[aria-pressed="true"] .n{color:rgba(255,255,255,.7)}
+.chip:hover{border-color:var(--accent)}
+.bar-actions{display:flex; gap:8px; flex:0 0 auto}
+.btn{border:1px solid var(--line); background:var(--surface); border-radius:8px; padding:6px 12px; font-size:13px; transition:.16s; white-space:nowrap}
+.btn:hover{border-color:var(--accent); color:var(--accent)}
+.btn.primary{background:var(--ink); border-color:var(--ink); color:#fff}
+.btn.primary:hover{background:var(--accent); border-color:var(--accent); color:#fff}
+.btn:disabled{opacity:.45; cursor:not-allowed}
+.btn:disabled:hover{border-color:var(--line); color:inherit}
+
+/* chapter header */
+.chead{padding:40px 0 22px; display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:start}
+.cno{font-family:var(--font-display); font-size:clamp(52px,8vw,84px); line-height:.82; color:var(--line); letter-spacing:-.04em; font-variant-numeric:lining-nums}
+.chead h2{font-size:clamp(24px,3.2vw,34px)}
+.chead .sub{margin:8px 0 0; color:var(--muted); font-size:14px}
+.scoreline{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:14px; font-size:13px; color:var(--ink-2)}
+.scoreline div{display:flex; align-items:baseline; gap:6px}
+.scoreline b{font-family:var(--font-display); font-size:21px; color:var(--ink); font-variant-numeric:tabular-nums}
+.scoreline span{color:var(--muted); font-size:12px}
+.meter{height:4px; background:var(--line-2); border-radius:2px; overflow:hidden; margin-top:12px; max-width:420px}
+.meter i{display:block; height:100%; background:var(--accent); width:0; transition:width .4s}
+
+/* question card */
+.q{border:1px solid var(--line); background:var(--surface); border-radius:var(--r-lg); padding:0; margin:0 0 18px; box-shadow:var(--sh); overflow:hidden; scroll-margin-top:80px}
+.q-head{display:grid; grid-template-columns:56px 1fr; border-bottom:1px solid var(--line-2)}
+.q-gutter{border-right:1px solid var(--line-2); display:flex; flex-direction:column; align-items:center; gap:8px; padding:18px 0 14px; background:var(--paper-2)}
+.q-gutter .num{font-family:var(--font-mono); font-size:15px; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.q-gutter .mk{width:20px; height:20px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; font-size:11px; color:var(--muted); background:var(--surface)}
+.q-gutter .mk.ok{background:var(--ok); border-color:var(--ok); color:#fff}
+.q-gutter .mk.no{background:var(--no); border-color:var(--no); color:#fff}
+.q-body{padding:18px 22px 20px}
+.q-meta{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px; font-size:11.5px; font-family:var(--font-mono); letter-spacing:.04em}
+.tag{border:1px solid var(--line); border-radius:4px; padding:2px 7px; color:var(--muted); text-transform:uppercase; font-size:10.5px; letter-spacing:.1em}
+.tag.type{background:var(--accent-soft); border-color:#CBDFE7; color:var(--accent)}
+.tag.pt{border-color:var(--line-2)}
+.stem{font-size:16.5px; line-height:1.85; color:var(--ink)}
+.stem p{margin:0 0 8px}
+.hint{color:var(--muted); font-size:13px; margin:6px 0 0}
+
+/* options */
+.opts{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:8px}
+.opt{display:grid; grid-template-columns:26px 1fr; gap:10px; align-items:start; border:1px solid var(--line); border-radius:var(--r); padding:11px 14px; background:var(--surface); text-align:left; width:100%; transition:.14s; cursor:pointer}
+.opt:hover{border-color:var(--accent); background:#FCFDFD}
+.opt .k{font-family:var(--font-mono); font-size:12.5px; color:var(--muted); border:1px solid var(--line); border-radius:5px; width:22px; height:22px; display:grid; place-items:center; margin-top:2px}
+.opt .t{font-size:15.5px; line-height:1.7}
+.opt.sel{border-color:var(--accent); background:var(--accent-soft)}
+.opt.sel .k{background:var(--accent); border-color:var(--accent); color:#fff}
+.opt.right{border-color:var(--ok); background:var(--ok-soft)}
+.opt.right .k{background:var(--ok); border-color:var(--ok); color:#fff}
+.opt.wrong{border-color:var(--no); background:var(--no-soft)}
+.opt.wrong .k{background:var(--no); border-color:var(--no); color:#fff}
+.opt.dim{opacity:.62}
+.opt[disabled]{cursor:default}
+.opt[disabled]:hover{border-color:var(--line)}
+.opt.right[disabled]:hover{border-color:var(--ok)}
+.opt.wrong[disabled]:hover{border-color:var(--no)}
+.opt .mark{font-size:11px; color:var(--muted); font-family:var(--font-mono); margin-left:8px; white-space:nowrap}
+
+/* judge + fill */
+.judge{display:flex; gap:10px; margin-top:16px}
+.judge .opt{grid-template-columns:26px 1fr; max-width:220px}
+.fills{display:flex; flex-direction:column; gap:10px; margin-top:16px}
+.fill-row{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.fill-row label{font-family:var(--font-mono); font-size:12.5px; color:var(--muted)}
+.fill-row input{border:1px solid var(--line); background:#FCFCFB; border-radius:8px; padding:8px 12px; min-width:200px; flex:1 1 200px; max-width:340px}
+.fill-row input:focus{outline:2px solid var(--accent-soft); border-color:var(--accent)}
+.fills .act{margin-top:4px; display:flex; gap:10px; align-items:center}
+
+/* submit row */
+.act{display:flex; gap:10px; align-items:center; margin-top:16px; flex-wrap:wrap}
+.act .note{font-size:12.5px; color:var(--muted)}
+
+/* feedback */
+.fb{margin:0; border-top:1px dashed var(--line); background:#FCFBF8; padding:20px 22px 22px}
+.fb-verdict{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:19px; margin-bottom:4px}
+.fb-verdict .ic{width:22px;height:22px;border-radius:50%; display:grid; place-items:center; color:#fff; font-size:12px; font-family:var(--font-body)}
+.fb.ok .fb-verdict{color:var(--ok)} .fb.ok .ic{background:var(--ok)}
+.fb.no .fb-verdict{color:var(--no)} .fb.no .ic{background:var(--no)}
+.fb-key{font-size:13px; color:var(--muted); margin-bottom:16px}
+.fb-key b{color:var(--ink); font-family:var(--font-mono); letter-spacing:.02em}
+.fb-block{margin-top:18px}
+.fb-block > h4{margin:0 0 8px; font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:400}
+.fb-block p{margin:0 0 8px; font-size:15px; line-height:1.85; color:var(--ink-2)}
+.why{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px}
+.why li{display:grid; grid-template-columns:24px 1fr; gap:10px; font-size:14.5px; line-height:1.75; color:var(--ink-2); padding:9px 12px; border-radius:8px; background:var(--surface); border:1px solid var(--line-2)}
+.why li.is-wrong{border-color:#EFCFC9; background:var(--no-soft)}
+.why li.is-right{border-color:#CBDDD2; background:var(--ok-soft)}
+.why .kk{font-family:var(--font-mono); font-size:12px; color:var(--muted); padding-top:2px}
+.why b{color:var(--ink); font-weight:600}
+.why em{font-style:normal; font-family:var(--font-mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--no); margin-left:6px}
+.why em.g{color:var(--ok)}
+.kps{display:flex; flex-wrap:wrap; gap:7px}
+.kp{border:1px solid #CBDFE7; background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 11px; font-size:12.5px; transition:.14s}
+.kp:hover{background:var(--accent); color:#fff; border-color:var(--accent)}
+.kp[aria-expanded="true"]{background:var(--accent); color:#fff; border-color:var(--accent)}
+.kp-doc{margin-top:10px; display:flex; flex-direction:column; gap:8px}
+.kp-card{border-left:3px solid var(--accent); background:var(--surface); border:1px solid var(--line-2); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:11px 14px}
+.kp-card h5{margin:0 0 3px; font-size:14px; font-family:var(--font-display); font-weight:600}
+.kp-card .ref{font-family:var(--font-mono); font-size:10.5px; color:var(--accent); letter-spacing:.04em}
+.kp-card p{margin:6px 0 0; font-size:14px; line-height:1.75; color:var(--ink-2)}
+
+/* case question extras */
+.cmds{display:flex; flex-direction:column; gap:4px; margin:14px 0 0; padding:14px 16px; background:#FBF9F4; border:1px solid var(--line-2); border-radius:10px; font-family:var(--font-mono); font-size:13px; overflow-x:auto}
+.cmds span{white-space:pre; color:var(--ink-2)}
+.cmds span i{color:var(--accent); font-style:normal; margin-right:8px}
+.tables{display:grid; gap:14px; margin-top:18px}
+.tbl-cap{font-family:var(--font-mono); font-size:11px; color:var(--muted); letter-spacing:.06em; margin-bottom:6px}
+.tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13px}
+th,td{padding:7px 12px; text-align:right; border-bottom:1px solid var(--line-2); font-variant-numeric:tabular-nums; font-family:var(--font-mono); white-space:nowrap}
+th{background:var(--paper-2); font-weight:500; color:var(--ink-2); font-size:11.5px; letter-spacing:.04em}
+th:first-child,td:first-child{text-align:left}
+tbody tr:last-child td{border-bottom:0}
+.tbl-foot{padding:9px 12px; font-family:var(--font-mono); font-size:11.5px; color:var(--muted); background:#FCFBF8; border-top:1px solid var(--line-2); line-height:1.8}
+.parts{margin-top:20px; display:flex; flex-direction:column; gap:14px}
+.part{border:1px solid var(--line-2); border-radius:10px; padding:14px 16px; background:#FDFCFA}
+.part-q{margin:0 0 10px; font-size:14.5px; line-height:1.75}
+.part-q b{font-family:var(--font-mono); color:var(--accent); font-weight:500; margin-right:6px}
+.part .fill-row input{max-width:260px}
+.part-fb{margin-top:12px; padding-top:12px; border-top:1px dashed var(--line); font-size:14px; line-height:1.8}
+.part-fb .v{font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase}
+.part-fb.ok .v{color:var(--ok)} .part-fb.no .v{color:var(--no)}
+.part-fb .ans{font-family:var(--font-mono); font-size:12.5px; color:var(--muted); margin:2px 0 6px}
+.part-fb p{margin:0 0 6px; color:var(--ink-2)}
+.part-fb .kps{margin-top:8px}
+
+/* math-ish inline formatting */
+.fm{font-family:var(--font-mono); font-size:.94em; white-space:nowrap; color:var(--ink); background:#F4F1E9; border-radius:4px; padding:1px 4px}
+.fm sub,.fm sup{font-size:.72em}
+.stem .fm,.opt .t .fm{background:#F4F1E9}
+
+/* footer */
+.foot{margin-top:44px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12.5px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+
+/* toast */
+.toast{position:fixed; left:50%; bottom:26px; transform:translate(-50%,14px); background:var(--ink); color:#fff; padding:9px 18px; border-radius:999px; font-size:13px; opacity:0; pointer-events:none; transition:.24s; z-index:60}
+.toast.on{opacity:1; transform:translate(-50%,0)}
+
+@media (max-width:760px){
+  .wrap{padding:0 14px 72px}
+  .mast{grid-template-columns:1fr; align-items:start}
+  .mast-meta{text-align:left}
+  .chead{grid-template-columns:1fr; gap:8px}
+  .cno{font-size:44px}
+  .q-head{grid-template-columns:40px 1fr}
+  .q-body,.fb{padding-left:14px; padding-right:14px}
+  .q-gutter{padding:14px 0}
+  .judge{flex-direction:column}
+  .judge .opt{max-width:none}
+  .bar{margin:0 -14px; padding:10px 14px}
+  .opt{grid-template-columns:22px 1fr; padding:10px 11px}
+  .why li{grid-template-columns:20px 1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <div class="eyebrow">Econometrics · Chapter Quiz</div>
+      <h1>计量经济学 <em>章节测试答题本</em></h1>
+      <p>依据《计量经济学 章节测试 题目与答案》整理，共 6 章 88 题。答对给出完整解析与其余选项的辨析，答错指出所选项错在哪里，并附上本题涉及的知识点（参照李子奈、潘文卿《计量经济学》第五版）。</p>
+    </div>
+    <div class="mast-meta">
+      <b id="globalScore">0<small style="font-size:13px;font-family:var(--font-mono)"> / 600</small></b>
+      累计得分（各题按原始分值）
+    </div>
+  </header>
+
+  <nav class="bar" aria-label="章节导航">
+    <div class="chips" id="chips"></div>
+    <div class="bar-actions">
+      <button class="btn" id="btnReveal" type="button">查看本章答案</button>
+      <button class="btn" id="btnReset" type="button">重置本章</button>
+    </div>
+  </nav>
+
+  <main id="main" aria-live="polite"></main>
+
+  <footer class="foot">
+    <span>题库来源：超星学习通《计量经济学 章节测试》；知识点参照李子奈、潘文卿《计量经济学》第五版。</span>
+    <span id="footStat"></span>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+window.__CH = [];
+window.CH_ADD = function (ch) { window.__CH.push(ch); };
+</script>
+
+<script>
+/* 知识点库：每条对应教材（李子奈、潘文卿《计量经济学》第五版）章节与要点 */
+window.KB = {
+  branch: {t:'计量经济学的学科归属', ref:'第1章 绪论', d:'计量经济学以经济学理论为依据、以经济数据为对象，用数学与统计方法定量刻画经济关系，学科上属于经济学的一个分支。'},
+  econometrica: {t:'成为独立学科的标志', ref:'第1章 绪论', d:'1930年世界计量经济学会成立、1933年会刊《Econometrica》（《计量经济学》）创刊，被视为计量经济学成为独立学科的标志。'},
+  threeSubjects: {t:'三大学科基础', ref:'第1章 绪论', d:'计量经济学是经济学、统计学（数理统计）、数学三者的结合：经济学提供理论与假设，统计学提供推断方法，数学提供模型形式与推导工具。'},
+  randomness: {t:'被解释变量的随机性', ref:'第2章 一元线性回归模型', d:'模型中除解释变量外还包含随机误差项，被解释变量因此是随机变量；解释变量一般视为非随机（确定性）变量。'},
+  dataTypes: {t:'三类数据', ref:'第1章 绪论 · 数据类型', d:'横截面数据：同一时点上不同单位同一指标；时间序列数据：同一单位不同时点；面板数据：不同单位、不同时点的二维数据。'},
+  panel: {t:'面板数据', ref:'第1章 绪论 · 数据类型', d:'面板数据同时具有截面（个体）与时间（时序）两个维度，是"多个单位 × 多个时期"的二维数据。'},
+  dataSource: {t:'数据来源与可用性', ref:'第1章 绪论 · 数据', d:'可用数据包括官方统计数据、专门调查数据（如CFPS）、以及把定性因素量化为虚拟变量的数据；计算机随机生成的数据不反映真实经济关系，不能用于实证分析。'},
+  quality: {t:'数据质量的评价维度', ref:'第1章 绪论 · 数据质量', d:'评价样本数据质量主要看完整性、准确性、可比性（一致性）等；"多样性"不是数据质量的评价指标。'},
+  testTypes: {t:'四类检验', ref:'第1章 绪论 · 建模步骤', d:'模型检验包括经济意义检验、统计检验、计量经济学检验、模型预测检验四个层次，各自回答不同问题。'},
+  econTest: {t:'经济意义检验', ref:'第1章 绪论', d:'检验参数估计值的符号、大小、相互关系是否符合经济理论预期与经验判断，这是第一道也是最基础的检验。'},
+  statTest: {t:'统计检验', ref:'第1章 绪论 / 第2章', d:'依据统计推断原理检验模型与参数的统计可靠性：拟合优度检验、变量显著性检验（t）、方程显著性检验（F）。'},
+  econoTest: {t:'计量经济学检验', ref:'第1章 绪论', d:'检验模型是否满足计量经济学基本假定，包括多重共线性、异方差性、序列相关性、随机解释变量（内生性）等。'},
+  predictTest: {t:'模型预测检验', ref:'第1章 绪论', d:'检验参数估计量的稳定性与模型的预测能力，如扩大样本区间、分段估计后比较参数是否漂移。'},
+  steps: {t:'建模四步', ref:'第1章 绪论 · 建模步骤', d:'理论模型设定（含变量选择与数学形式）→ 收集数据 → 估计参数 → 模型检验 → 模型应用。'},
+  modelElem: {t:'模型的构成要素', ref:'第1章 绪论', d:'一个计量经济模型由变量、参数、随机误差项构成；方程式只是这些要素的书写形式。'},
+  varCause: {t:'变量按因果关系分类', ref:'第1章 绪论', d:'从因果关系看分为解释变量与被解释变量；按是否由模型内部决定分为内生变量与外生变量。'},
+  appUse: {t:'模型的应用', ref:'第1章 绪论', d:'计量经济模型主要用于结构分析（弹性、乘数）、经济预测、政策评价，以及检验和发展经济理论。'},
+  olsAssump: {t:'OLS 的基本假定', ref:'第2章 一元线性回归模型', d:'零均值、同方差、无自相关、解释变量非随机且与误差项无关、（多元时）无多重共线性、误差项服从正态分布。'},
+  normality: {t:'误差项的正态性假定', ref:'第2章 一元线性回归模型', d:'u_i ~ N(0, σ²)：分布为正态，且在同方差假定下方差为常数 σ²，不随 i 改变。'},
+  unbiased: {t:'无偏性', ref:'第2章 一元线性回归模型', d:'E(β̂)=β，即估计量在重复抽样中的均值等于真值。'},
+  efficient: {t:'有效性（最小方差性）', ref:'第2章 / 第3章', d:'在所有线性无偏估计量中，OLS 估计量的方差最小；有效性说的是"方差最小"，不是"方差为零"。'},
+  linearity: {t:'线性性', ref:'第2章 一元线性回归模型', d:'参数估计量可以表示为被解释变量观测值的线性组合。'},
+  blue: {t:'高斯—马尔可夫定理', ref:'第2章 一元线性回归模型', d:'满足基本假定时，OLS 估计量是最佳线性无偏估计量（BLUE）：线性、无偏、方差最小。'},
+  prf: {t:'总体回归函数不可知', ref:'第2章 一元线性回归模型', d:'总体数据通常未知或不可获得，因此总体回归函数（PRF）无法直接知道，只能用样本回归函数（SRF）去估计它。'},
+  prfForm: {t:'总体回归模型与样本回归模型', ref:'第2章 一元线性回归模型', d:'总体回归模型 Y_i=β₀+β₁X_i+μ_i 含随机误差项；样本回归模型 Y_i=β̂₀+β̂₁X_i+e_i 用估计值与残差替代。E(Y|X_i)=β₀+β₁X_i 是总体回归直线（条件期望形式）。'},
+  beta1Meaning: {t:'斜率的经济含义', ref:'第2章 一元线性回归模型', d:'β₁ 是边际效应：X 每增加一个单位，Y 平均增加 β₁ 个单位（不是"一定增加"，也不是 Y 变动引起 X 变动）。'},
+  r2: {t:'可决系数 R²', ref:'第2章 一元线性回归模型', d:'R²=ESS/TSS=1−RSS/TSS，即回归平方和占总离差平方和的比重，取值 0≤R²≤1，用来度量拟合优度。'},
+  tss: {t:'总平方和分解', ref:'第2章 一元线性回归模型', d:'TSS=ESS+RSS。ESS 是被解释变量的总变化中能够由回归模型解释的部分，RSS 是未能解释的部分。'},
+  fitTest: {t:'拟合优度检验', ref:'第2章 一元线性回归模型', d:'用可决系数（或调整可决系数）衡量样本回归线对样本观测值的拟合程度；t、F 统计量用于显著性检验，不用于拟合优度。'},
+  statThree: {t:'常用统计检验', ref:'第2章 一元线性回归模型', d:'拟合优度检验、解释变量的显著性检验（t 检验）、回归方程的总体显著性检验（F 检验）。'},
+  noAutocorr: {t:'无自相关假定', ref:'第2章 / 第6章', d:'随机误差项之间互不相关：Cov(u_i,u_j)=0（i≠j）。这一假定被违反时即为序列相关性。'},
+  tTestSingle: {t:'一元模型的 t 检验与 F 检验', ref:'第2章 一元线性回归模型', d:'一元模型中变量显著性用 t 统计量检验，且 F=t²，所以 F 检验与 t 检验等价，结论一致。'},
+  olsPrinciple: {t:'OLS 的原理', ref:'第2章 一元线性回归模型', d:'最小二乘原理是使残差平方和 Σe² 最小；"使样本观测值出现概率最大"是极大似然估计的原理，两者不要混淆。'},
+  semilog: {t:'半对数模型', ref:'第3章 多元线性回归模型', d:'Y=β₀+β₁lnX+μ 中，β₁ 表示 X 相对变化 1%（ΔlnX=0.01）引起 Y 的绝对量变化约 0.01β₁；X 的绝对变化对应 Y 的变化不是常数。'},
+  loglog: {t:'双对数（对数线性）模型', ref:'第3章 多元线性回归模型', d:'lnY=β₀+β₁lnX+μ 中 β₁ 是 Y 对 X 的弹性；模型关于变量非线性、关于参数线性，是"参数线性模型"。'},
+  fTest: {t:'F 检验（方程总体显著性）', ref:'第3章 多元线性回归模型', d:'检验 H₀: 所有斜率同时为 0，F=[ESS/(k−1)]/[RSS/(n−k)]，k 为含截距的参数个数。F 显著只说明解释变量对被解释变量的联合影响显著，不说明每个变量各自显著。'},
+  tDf: {t:'t 检验的自由度', ref:'第3章 多元线性回归模型', d:'t=β̂_i/se(β̂_i) 服从 t(n−k−1)，其中 n−k−1 为残差平方和的自由度（n 个观测、k 个参数）。'},
+  pValue: {t:'P 值的含义', ref:'第3章 / 第2章', d:'P 值是原假设为真时得到当前或更极端样本结果的概率，不是"原假设为真的概率"；P<α 时在显著性水平 α 下拒绝原假设。'},
+  dummy: {t:'虚拟变量数据', ref:'第3章 多元线性回归模型', d:'学历、性别、地区等定性因素量化为 0-1 变量后进入模型，这类数据称为虚拟变量数据。'},
+  multiAssump: {t:'多元与一元模型假定的差别', ref:'第3章 多元线性回归模型', d:'多元模型在一元模型假定之外，还要求解释变量之间不存在完全（严重）多重共线性，并涉及矩阵形式的假定，因此"基本假定完全相同"不成立。'},
+  mcDef: {t:'多重共线性的定义', ref:'第4章 多重共线性', d:'解释变量之间存在高度（近似）线性相关关系，使设计矩阵接近奇异。'},
+  mcSym: {t:'多重共线性的典型症状', ref:'第4章 多重共线性', d:'R² 与 F 检验显著，但多数（甚至全部）t 检验不显著；系数符号或大小与经济理论相悖；增加或删除一个样本点系数剧烈变化。'},
+  vif: {t:'方差膨胀因子 VIF', ref:'第4章 多重共线性', d:'VIF_j=1/(1−R_j²)，R_j² 为第 j 个解释变量对其余解释变量回归的可决系数；经验上 VIF>10 认为共线性严重。'},
+  mcCause: {t:'多重共线性的成因', ref:'第4章 多重共线性', d:'样本容量过小、解释变量有共同时间趋势、同时纳入水平项与滞后项、经济变量本身同向变动（如收入与消费）等。'},
+  mcConseq: {t:'多重共线性的后果', ref:'第4章 多重共线性', d:'OLS 估计量仍无偏、方差变大、精度下降；t 检验易不显著；系数经济含义可能扭曲甚至符号相反；但整体拟合优度通常不会大幅下降。'},
+  mcFix: {t:'多重共线性的修正', ref:'第4章 多重共线性', d:'增加样本容量、剔除相对次要且高度相关的变量、变量变换（比率化、实际化、差分）、逐步回归、主成分回归或岭回归等；不能无条件删除所有不显著变量。'},
+  stepwise: {t:'逐步回归法', ref:'第4章 多重共线性', d:'逐个引入解释变量观察拟合优度与显著性变化，或逐步剔除不显著变量，既可用于检验也可用于修正多重共线性。'},
+  mcTest: {t:'多重共线性的检验方法', ref:'第4章 多重共线性', d:'相关系数矩阵、VIF（容忍度）、逐步回归、条件数等；White 检验、G-Q 检验用于异方差，不是共线性检验。'},
+  mcFlow: {t:'处理多重共线性的流程', ref:'第4章 多重共线性', d:'产生原因识别 → 不良后果判断 → 多重共线性检验 → 模型修正，四步构成标准处理流程。'},
+  hetero: {t:'异方差的定义', ref:'第5章 异方差性', d:'Var(u_i)=σ_i² 随观测单位变化，违反同方差假定 σ_i²=σ²。'},
+  heteroConseq: {t:'异方差的后果', ref:'第5章 异方差性', d:'OLS 仍线性、无偏，但不再有效（方差不是最小）；常规标准误估计有偏，t、F 检验不可靠，预测精度下降。'},
+  white: {t:'White 检验', ref:'第5章 异方差性', d:'无需对异方差具体形式作先验假设，适用于大样本：用 e² 对解释变量、其平方项与交叉项回归，用 nR² 检验。'},
+  bp: {t:'BP 检验（Breusch-Pagan）', ref:'第5章 异方差性', d:'用 e² 对解释变量做辅助回归，由 nR²（或辅助回归 F）判断异方差是否存在；与 White 检验同属一大类。'},
+  wls: {t:'加权最小二乘法 WLS', ref:'第5章 异方差性', d:'已知 Var(u_i)=σ²X_i² 时，以 w_i=1/X_i² 为权重（等价于原模型两边同除以 X_i）做 OLS，可得到 BLUE。'},
+  robust: {t:'异方差稳健标准误', ref:'第5章 异方差性', d:'White 稳健标准误不改变 OLS 系数估计，只修正标准误与 t、F 统计量，使推断在大样本下可靠。'},
+  heteroSrc: {t:'异方差的主要来源', ref:'第5章 异方差性', d:'多出现在横截面数据：地区规模差异、家庭收入差距、企业规模差异等；时间序列数据中相对少见。'},
+  logFix: {t:'取对数缓解异方差', ref:'第5章 异方差性', d:'对被解释变量或解释变量取对数可压缩变量尺度、稳定方差，是缓解异方差的常用经验做法。'},
+  autocorr: {t:'序列相关性', ref:'第6章 自相关', d:'随机扰动项在不同观测期之间存在相关关系，Cov(u_t,u_{t−s})≠0；与解释变量之间的相关（多重共线性）不是同一问题。'},
+  dw: {t:'DW 统计量', ref:'第6章 自相关', d:'DW=Σ(e_t−e_{t−1})²/Σe_t²，取值 0~4，接近 2 表示不存在一阶自相关；它只能检验一阶自相关，且不适用于含滞后被解释变量的模型。'},
+  unitRoot: {t:'平稳性与单位根', ref:'第8章 时间序列计量经济学模型', d:'均值、方差、自协方差都不随时间变化称为（宽）平稳；存在单位根的序列（如随机游走）是非平稳序列，差分后可能平稳。'},
+  adf: {t:'ADF 单位根检验', ref:'第8章 时间序列计量经济学模型', d:'原假设为"存在单位根（非平稳）"，是左侧单尾检验：只有 t 统计量小于临界值才拒绝原假设、认为序列平稳。'},
+  cointegration: {t:'协整关系', ref:'第8章 时间序列计量经济学模型', d:'同阶单整的非平稳变量，其某个线性组合是平稳的，说明变量间存在长期稳定的均衡关系；协整检验通常要求变量同阶单整。'},
+  ecm: {t:'误差修正模型 ECM', ref:'第8章 时间序列计量经济学模型', d:'建立 ECM 的前提是变量间存在协整关系；同阶单整只是协整检验的前提条件，并不保证存在协整。'},
+  granger: {t:'格兰杰因果关系检验', ref:'第8章 时间序列计量经济学模型', d:'检验 X 的滞后信息是否有助于预测 Y，是"预测意义上的因果"；要求序列平稳或存在协整关系，原假设为"X 不是 Y 的格兰杰原因"。'},
+  spurious: {t:'伪回归', ref:'第8章 时间序列计量经济学模型', d:'两个非平稳序列直接回归，可能出现 R² 很高、t 显著但毫无经济意义的虚假关系；若二者协整，则回归不是伪回归。'},
+  lmTest: {t:'LM 检验（高阶自相关）', ref:'第6章 自相关', d:'Breusch-Godfrey LM 检验可用于高阶自相关，并适用于含滞后被解释变量的模型；图示法只能粗略判断。'},
+  bpStata: {t:'Stata 中的异方差检验与稳健推断', ref:'第5章 异方差性', d:'predict e,residual 取残差、gen e2=e^2 生成平方残差、reg e2 edu exper 即 BP 辅助回归；reg ...,robust 输出异方差稳健标准误。'}
+};
+</script>
+<script>
+window.CH_ADD({
+  id:'ch1', no:'01', title:'绪论', note:'学科性质 · 数据类型 · 建模步骤', raw:'原始成绩 85.7 / 100',
+  questions:[
+  {id:'1-1', type:'single', score:4.76, stem:'计量经济学是下列哪门学科的分支学科（ ）',
+   options:[
+    {k:'A', t:'会计学', why:'会计学是记录与核算资金运动的方法性学科，提供的是核算规则，不构成计量经济学的理论母体。'},
+    {k:'B', t:'经济学', why:'正确。计量经济学从经济理论出发设定模型，用数据估计和检验经济关系，其研究对象是经济现象，因此归属经济学。'},
+    {k:'C', t:'统计学', why:'统计学提供估计与检验的方法工具，但计量经济学研究的对象不是随机现象本身，而是经济变量之间的关系。'},
+    {k:'D', t:'数学', why:'数学是模型形式与推导的语言工具，不能据此判断学科归属。'}],
+   answer:['B'],
+   analysis:'计量经济学是经济学的分支学科：它以经济理论为建模依据，把经济理论表述为可计量的模型，再用统计推断方法估计与检验，最终服务于经济解释、预测和政策评价。',
+   k:['branch','threeSubjects']},
+
+  {id:'1-2', type:'single', score:4.76, stem:'计量经济学成为一门独立学科的标志是（ ）',
+   options:[
+    {k:'A', t:'1930年世界计量经济学会成立', why:'学会成立是学科建制化进程中的重要事件，但教材把"成为独立学科"的标志落在会刊创刊上，二者要区分。'},
+    {k:'B', t:'1933年《计量经济学》会刊出版', why:'正确。1930年学会成立、1933年会刊《Econometrica》创刊，标志计量经济学形成独立学科。'},
+    {k:'C', t:'1969年诺贝尔经济学奖设立', why:'该奖设立远晚于学科形成，且与计量经济学独立无关（首届获奖者是 Frisch 与 Tinbergen，属追认贡献）。'},
+    {k:'D', t:'1926年计量经济学(Economics)一词构造出来', why:'一词的构造只是命名的起点，学科尚未形成体系与方法论。'}],
+   answer:['B'],
+   analysis:'学科独立需要"组织 + 刊物 + 方法论体系"。1930年世界计量经济学会成立、1933年会刊《Econometrica》出版，被视为计量经济学成为独立学科的标志。',
+   k:['econometrica']},
+
+  {id:'1-3', type:'single', score:4.76, stem:'计量经济学融合的学科中不包括（ ）',
+   options:[
+    {k:'A', t:'会计学', why:'正确。会计学不在计量经济学的学科基础之内。'},
+    {k:'B', t:'经济学', why:'经济学提供理论假设和变量关系的先验判断，是首要基础，不能选。'},
+    {k:'C', t:'数学', why:'数学提供模型形式、求导与优化工具，属于基础之一。'},
+    {k:'D', t:'统计学', why:'统计学提供抽样分布、估计与检验理论，属于基础之一。'}],
+   answer:['A'],
+   analysis:'教材的经典表述是：计量经济学是经济学、统计学、数学（数理统计）三者的结合。会计学属于核算方法与信息披露规范，不是其构成部分。',
+   k:['threeSubjects']},
+
+  {id:'1-4', type:'single', score:4.76, stem:'计量经济模型中的被解释变量一定是（ ）',
+   options:[
+    {k:'A', t:'控制变量', why:'控制变量是研究者可操纵或固定的变量，通常出现在实验设计中，不是被解释变量的属性。'},
+    {k:'B', t:'政策变量', why:'政策变量常作为解释变量进入模型（虚拟变量或政策强度指标），不是被解释变量的必然后果。'},
+    {k:'C', t:'随机变量', why:'正确。模型含随机误差项，被解释变量的取值受随机因素影响，因此是随机变量。'},
+    {k:'D', t:'外生变量', why:'外生变量由模型之外决定，常用于解释变量；被解释变量由模型内部决定，属于内生变量。'}],
+   answer:['C'],
+   analysis:'Y_i=β₀+β₁X_i+μ_i 中的 μ_i 是不可观测的随机干扰项，因此 Y_i 的取值具有随机性，是随机变量；解释变量 X 一般视为非随机的确定性变量。',
+   k:['randomness','varCause']},
+
+  {id:'1-5', type:'single', score:4.76, stem:'横截面数据是指（ ）',
+   options:[
+    {k:'A', t:'同一时点上不同统计单位相同统计指标组成的数据', why:'正确。这正是横截面数据的定义。'},
+    {k:'B', t:'同一时点上相同统计单位相同统计指标组成的数据', why:'同一单位同一时点只有一个观测值，构不成数据列。'},
+    {k:'C', t:'同一时点上相同统计单位不同统计指标组成的数据', why:'这是单个单位的多指标截面观测，不能提供单位间的差异信息。'},
+    {k:'D', t:'同一时点上不同统计单位不同统计指标组成的数据', why:'不同单位、不同指标混在一起，无法形成可比的同一变量序列。'}],
+   answer:['A'],
+   analysis:'横截面数据的两个关键点：同一时点、不同单位、同一指标。例如2025年31个省份的地区生产总值。',
+   k:['dataTypes']},
+
+  {id:'1-6', type:'single', score:4.76, stem:'同一统计指标按时间顺序记录的数据列称为（ ）',
+   options:[
+    {k:'A', t:'横截面数据', why:'横截面数据是同一时点不同单位，强调"横向"比较。'},
+    {k:'B', t:'时间序列数据', why:'正确。同一单位同一指标按时间顺序排列即为时间序列数据。'},
+    {k:'C', t:'修匀数据', why:'修匀（平滑）只是对原始序列的加工处理方法，不是数据类型。'},
+    {k:'D', t:'原始数据', why:'原始数据指未经加工的数据，与"是否按时间排列"不是同一分类维度。'}],
+   answer:['B'],
+   analysis:'时间序列数据的核心是"同一单位、同一指标、按时间顺序"。它与横截面数据的区别在于变化维度是时间而非个体。',
+   k:['dataTypes']},
+
+  {id:'1-7', type:'single', score:4.76, stem:'下面属于面板数据的是（ ）',
+   options:[
+    {k:'A', t:'2010—2025年各年某乡镇企业的工业产值', why:'只有一个单位、多个年份，是时间序列数据。'},
+    {k:'B', t:'2010—2025年各年某地区20个乡镇企业各镇的工业产值', why:'正确。20个乡镇 × 16个年份，同时具有个体与时间两个维度。'},
+    {k:'C', t:'某年某地区20个乡镇工业产值的合计数', why:'只有一个汇总数值，既非截面序列也非面板。'},
+    {k:'D', t:'某年某地区20个乡镇各镇的工业产值', why:'只有单个年份、多个乡镇，是横截面数据。'}],
+   answer:['B'],
+   analysis:'面板数据＝多个个体 × 多个时期。A 只有时间维，D 只有个体维，只有 B 同时具备两维。',
+   k:['panel','dataTypes']},
+
+  {id:'1-8', type:'single', score:4.76, stem:'下列各种数据中，不应该作为计量经济分析所用数据的是（ ）',
+   options:[
+    {k:'A', t:'时间序列数据', why:'真实统计得到的时间序列是计量分析的主要数据类型之一。'},
+    {k:'B', t:'计算机随机生成的数据', why:'正确。随机生成数据不含真实经济关系，用它估计出的参数没有经济含义，不能用于实证计量分析（只可用于方法演示）。'},
+    {k:'C', t:'爬虫数据', why:'网络爬虫数据经清洗、校验后可用于计量分析，属于非传统数据来源。'},
+    {k:'D', t:'虚拟变量数据', why:'把定性因素量化为0-1虚拟变量是标准做法，是合法数据类型。'}],
+   answer:['B'],
+   analysis:'计量分析要求数据反映真实的经济行为与制约关系。计算机随机生成的数据是人为构造的，其"显著"结果只是算法产物，不能作为实证证据。',
+   k:['dataSource','quality']},
+
+  {id:'1-9', type:'single', score:4.76, stem:'以下哪项不属于样本数据质量的指标？（ ）',
+   options:[
+    {k:'A', t:'完整性', why:'完整性要求样本覆盖应有的单位与时期、缺失率低，是质量指标。'},
+    {k:'B', t:'多样性', why:'正确。数据"多样性"是数据特征的丰富程度，不是质量评价维度。'},
+    {k:'C', t:'准确性', why:'准确性要求观测值与真实值一致、口径正确，是核心质量指标。'},
+    {k:'D', t:'可比性', why:'可比性要求统计口径、价格基准、单位在不同时期或地区间一致，是质量指标。'}],
+   answer:['B'],
+   analysis:'样本数据质量通常从完整性、准确性、可比性（一致性）、时效性等角度评价。多样性属于数据特征，与"质量好坏"不是同一概念。',
+   k:['quality']},
+
+  {id:'1-10', type:'single', score:4.76, stem:'在模型中，检验参数估计值的符号和数值大小是否合理的检验是（ ）',
+   options:[
+    {k:'A', t:'经济检验', why:'正确。经济意义检验专门考察估计值的符号、大小、相互关系是否符合经济理论。'},
+    {k:'B', t:'统计显著性检验', why:'统计检验考察参数是否显著异于零，与"是否符合经济理论"无关。'},
+    {k:'C', t:'计量经济学检验', why:'计量经济学检验考察是否违反基本假定（共线性、异方差、自相关等）。'},
+    {k:'D', t:'预测性检验', why:'预测检验考察参数稳定性和模型外推能力。'}],
+   answer:['A'],
+   analysis:'四类检验各司其职：经济意义检验看"讲不讲得通"，统计检验看"是不是显著"，计量经济学检验看"假定是否成立"，预测检验看"预测准不准"。',
+   k:['econTest','testTypes']},
+
+  {id:'1-11', type:'single', score:4.76, stem:'在计量经济学中，什么是"参数估计值的符号、大小、相互关系"的检验？（ ）',
+   options:[
+    {k:'A', t:'用于检验变量之间是否存在多重共线性', why:'多重共线性检验属于计量经济学检验，考察的是解释变量之间的关系。'},
+    {k:'B', t:'用于判断变量的分布是否正态', why:'正态性检验考察误差项分布假定，与参数符号、大小是否合理无关。'},
+    {k:'C', t:'用于验证参数估计是否符合经济理论预期', why:'正确。这正是经济意义检验的含义。'},
+    {k:'D', t:'用于分析变量的时间序列特性', why:'平稳性、单整阶数等属于时间序列分析内容。'}],
+   answer:['C'],
+   analysis:'参数估计量的符号与大小是否与经济理论一致、变量间关系是否合理，属于经济意义检验；若符号反常，即使统计上显著也需重新审视模型。',
+   k:['econTest']},
+
+  {id:'1-12', type:'single', score:4.76, stem:'检验模型是否符合计量经济学的基本假定属于（ ）',
+   options:[
+    {k:'A', t:'统计检验', why:'统计检验处理抽样不确定性问题（t、F、R²），不针对基本假定本身。'},
+    {k:'B', t:'计量经济学检验', why:'正确。共线性、异方差、自相关、随机解释变量等假定是否成立，正是计量经济学检验的内容。'},
+    {k:'C', t:'经济意义检验', why:'经济意义检验考察参数是否符合经济理论，不考察假定。'},
+    {k:'D', t:'模型预测检验', why:'预测检验考察外推能力与参数稳定性。'}],
+   answer:['B'],
+   analysis:'计量经济学检验的对象就是"基本假定"。例如异方差检验、自相关检验、多重共线性检验、内生性检验，都属于这一层次。',
+   k:['econoTest','testTypes']},
+
+  {id:'1-13', type:'single', score:4.76, stem:'建立和应用计量经济学模型的主要工作步骤包括（ ）、收集数据、估计参数、检验模型、应用模型。',
+   options:[
+    {k:'A', t:'理论模型的设定和建立', why:'正确。第一步是根据经济理论和研究目的设定模型，包括选择变量与确定数学形式。'},
+    {k:'B', t:'确定变量', why:'确定变量是模型设定中的一个环节，不能概括"设定"这一整体步骤。'},
+    {k:'C', t:'确定模型的数学形式', why:'同样只是模型设定的一部分，不能代表整个第一步。'},
+    {k:'D', t:'经济意义检验', why:'经济意义检验属于后面"检验模型"阶段，位置错误。'}],
+   answer:['A'],
+   analysis:'标准流程：模型设定（含变量选择与形式确定）→ 收集数据 → 估计参数 → 检验模型 → 应用模型。第一步是统领性工作，故应选"理论模型的设定和建立"。',
+   k:['steps']},
+
+  {id:'1-14', type:'single', score:4.76, stem:'计量经济分析工作的基本步骤是（ ）',
+   options:[
+    {k:'A', t:'模型设定、参数估计、模型检验、模型应用', why:'正确。这是教材给出的四步基本流程。'},
+    {k:'B', t:'设定模型、估计参数、检验模型、应用模型、模型评价', why:'多了"模型评价"，且顺序打乱，不是标准四步表述。'},
+    {k:'C', t:'个体设计、总体设计、估计模型、应用模型、检验模型', why:'这是抽样调查设计的逻辑，且检验应在应用之前。'},
+    {k:'D', t:'确定模型导向、确定变量及方程式、估计模型、检验模型、应用模型', why:'前两项只是模型设定的细分，不是独立的四个步骤。'}],
+   answer:['A'],
+   analysis:'四步顺序不可颠倒：先设定才能估计，先估计才能检验，检验通过才能应用。B 多出环节，C、D 混淆了层级。',
+   k:['steps']},
+
+  {id:'1-15', type:'multi', score:4.76, stem:'计量经济学是以下哪些学科相结合的综合性学科（ ）',
+   options:[
+    {k:'A', t:'统计学', why:'正确。抽样分布、估计与检验理论来自统计学。'},
+    {k:'B', t:'数理经济学', why:'数理经济学用数学形式表述经济理论，但教材的三学科表述为经济学、统计学、数学，不含数理经济学。'},
+    {k:'C', t:'数学', why:'正确。模型形式、最优化与矩阵运算依赖数学。'},
+    {k:'D', t:'经济学', why:'正确。经济理论提供模型设定的出发点与参数符号的先验预期。'}],
+   answer:['A','C','D'],
+   analysis:'教材的标准表述是"经济学 + 统计学 + 数学"。数理经济学只是经济学的一个分支方向，与计量经济学是并列关系而非其构成部分。',
+   k:['threeSubjects']},
+
+  {id:'1-16', type:'multi', score:4.76, stem:'一个计量经济模型由以下哪些要素构成（ ）',
+   options:[
+    {k:'A', t:'变量', why:'正确。变量描述经济现象，分解释变量与被解释变量。'},
+    {k:'B', t:'参数', why:'正确。参数反映变量间关系的方向与强度，是需要估计的未知量。'},
+    {k:'C', t:'随机误差项', why:'正确。随机误差项概括未纳入模型的所有随机因素，是计量模型区别于确定性模型的标志。'},
+    {k:'D', t:'线性方程式', why:'方程式只是三要素的组织形式；模型也可以是参数线性的非线性形式（如双对数模型），故"线性方程式"不是构成要素。'}],
+   answer:['A','B','C'],
+   analysis:'模型三要素是变量、参数、随机误差项。方程式的形式属于"模型的数学形式"，是可选择的外在表达，不是构成要素。',
+   k:['modelElem']},
+
+  {id:'1-17', type:'multi', score:4.76, stem:'从变量的因果关系看，经济变量可分为（ ）',
+   options:[
+    {k:'A', t:'解释变量', why:'正确。解释变量是模型中作为原因（自变量）的变量。'},
+    {k:'B', t:'被解释变量', why:'正确。被解释变量是作为结果（因变量）的变量。'},
+    {k:'C', t:'内生变量', why:'内生/外生是按"是否由模型内部决定"划分，属于联立方程模型的分类维度，不是因果维度。'},
+    {k:'D', t:'外生变量', why:'同上，属另一分类维度。'}],
+   answer:['A','B'],
+   analysis:'题目限定"从因果关系看"，因此只有解释变量与被解释变量。内生、外生是按变量取值是否由模型体系决定来划分的。',
+   k:['varCause']},
+
+  {id:'1-18', type:'multi', score:4.76, stem:'计量经济研究中使用的数据主要有（ ）',
+   options:[
+    {k:'A', t:'各种经济统计数据（如国家统计局提供的宏观数据）', why:'正确。官方统计是最主要的常规数据来源。'},
+    {k:'B', t:'专门调查取得的数据（如中国家庭追踪调查CFPS数据）', why:'正确。微观调查数据广泛用于家庭、劳动经济学研究。'},
+    {k:'C', t:'人工处理的定性变量数据（如性别数据）', why:'正确。定性因素量化为虚拟变量后可进入模型，是可用的数据类型。'},
+    {k:'D', t:'python爬取后未处理的文本及多媒体数据', why:'错误。未清洗的文本与多媒体数据无法直接进入计量模型，必须先结构化、量化并校验。'}],
+   answer:['A','B','C'],
+   analysis:'可用数据的关键是"能转化为可比的数值型变量"。D 的问题在于"未处理"——文本与多媒体须先做结构化与量化处理，否则不构成计量分析数据。',
+   k:['dataSource']},
+
+  {id:'1-19', type:'multi', score:4.76, stem:'统计检验包括（ ）',
+   options:[
+    {k:'A', t:'变量的显著性检验', why:'正确。即对单个回归系数的 t 检验。'},
+    {k:'B', t:'方程的显著性检验', why:'正确。即对总体线性关系的 F 检验。'},
+    {k:'C', t:'序列相关性检验', why:'错误。序列相关检验考察的是误差项无自相关假定，属于计量经济学检验。'},
+    {k:'D', t:'拟合优度检验', why:'正确。用 R² 或调整 R² 衡量拟合程度。'}],
+   answer:['A','B','D'],
+   analysis:'统计检验＝拟合优度检验 + 变量显著性检验（t）+ 方程显著性检验（F）。序列相关性检验针对基本假定，属计量经济学检验。',
+   k:['statTest','statThree','testTypes']},
+
+  {id:'1-20', type:'multi', score:4.76, stem:'利用统计推断的原理，对模型及参数的统计可靠性进行检验不属于（ ）',
+   options:[
+    {k:'A', t:'统计检验', why:'不选。题干所述正是统计检验的定义，因此它"属于"统计检验而非"不属于"。'},
+    {k:'B', t:'计量经济学检验', why:'正确（应选）。计量经济学检验的对象是基本假定是否成立。'},
+    {k:'C', t:'经济意义检验', why:'正确（应选）。经济意义检验的对象是参数符号与大小是否符合经济理论。'},
+    {k:'D', t:'模型预测检验', why:'正确（应选）。预测检验的对象是参数稳定性与外推能力。'}],
+   answer:['B','C','D'],
+   analysis:'这是一道反向选择题。注意题干问"不属于"，而"利用统计推断原理检验统计可靠性"恰恰就是统计检验的定义，所以 A 反而是属于的那一项。',
+   k:['statTest','testTypes']},
+
+  {id:'1-21', type:'multi', score:4.8, stem:'计量经济模型的应用包括（ ）',
+   options:[
+    {k:'A', t:'结构分析', why:'正确。用弹性、乘数等刻画经济结构。'},
+    {k:'B', t:'发展预测', why:'正确。用模型对经济变量作外推预测。'},
+    {k:'C', t:'政策评估', why:'正确。政策评价（模拟不同政策方案的效果）是模型的重要用途。'},
+    {k:'D', t:'验证理论', why:'正确。用经验数据检验经济理论假说是否成立，也是模型应用方式之一。'}],
+   answer:['A','B','C','D'],
+   analysis:'模型应用的四个方面：结构分析、经济预测、政策评价、检验和发展经济理论。四者并列，均可作为建模目的。',
+   k:['appUse']}
+  ]
+});
+</script>
+<script>
+window.CH_ADD({
+  id:'ch2', no:'02', title:'一元线性回归模型', note:'基本假定 · OLS 性质 · R² 与检验', raw:'原始成绩 100 / 100',
+  questions:[
+  {id:'2-1', type:'single', score:5.2,
+   stem:'对回归模型 <span class="fm">Y<sub>i</sub> = β<sub>0</sub> + β<sub>1</sub>X<sub>i</sub> + u<sub>i</sub></span> 进行检验时，通常假定 <span class="fm">u<sub>i</sub></span> 服从（ ）',
+   options:[
+    {k:'A', t:'<span class="fm">N(0, σ<sub>i</sub><sup>2</sup>)</span>', why:'这里方差带下标 i，意味着方差随观测单位变化，即异方差；而检验所依据的经典假定要求同方差。'},
+    {k:'B', t:'<span class="fm">t(n−2)</span>', why:'t 分布是 β̂ 标准化后的抽样分布，不是误差项 u_i 的分布；把统计量的分布与误差项分布混淆了。'},
+    {k:'C', t:'<span class="fm">N(0, σ<sup>2</sup>)</span>', why:'正确。零均值、同方差的正态分布正是基本假定中的正态性假定。'},
+    {k:'D', t:'<span class="fm">t(n)</span>', why:'t 分布自由度也不是 n；且误差项的假定分布应为正态而非 t。'}],
+   answer:['C'],
+   analysis:'基本假定要求 u_i ~ N(0, σ²)：均值为零、方差为常数 σ²、且服从正态分布。有了正态性假定，β̂ 才服从正态分布，t、F 检验才成立。若写成 σ_i²（带下标）就变成异方差，假定被破坏。',
+   k:['olsAssump','normality']},
+
+  {id:'2-2', type:'single', score:5.2,
+   stem:'参数 <span class="fm">β</span> 的估计量 <span class="fm">β̂</span> 具备有效性是指（ ）',
+   options:[
+    {k:'A', t:'<span class="fm">var(β̂) = 0</span>', why:'方差为零意味着估计量恒等于常数、不随样本变化，这不是有效性的含义。'},
+    {k:'B', t:'<span class="fm">var(β̂) 为最小</span>', why:'正确。有效性就是在所有线性无偏估计量中方差（抽样波动）最小。'},
+    {k:'C', t:'<span class="fm">(β̂ − β) = 0</span>', why:'这要求每次估计都恰好等于真值，现实中不可能；它讲的是"无偏"的极端化，而不是有效性。'},
+    {k:'D', t:'<span class="fm">(β̂ − β) 为最小</span>', why:'偏差最小也不等于有效：无偏要求偏差期望为零，有效性要求方差最小，两者是不同性质。'}],
+   answer:['B'],
+   analysis:'有效性（最小方差性）指在所有的线性无偏估计量中，OLS 估计量的方差最小，即抽样分布最集中、估计精度最高。它必须以无偏性为前提。',
+   k:['efficient','blue']},
+
+  {id:'2-3', type:'single', score:5.2,
+   stem:'个别家庭消费支出与平均消费支出之间的差异被称为（ ）',
+   options:[
+    {k:'A', t:'系统误差', why:'系统误差是有固定方向、可重复测得的偏差，源于测量工具或方法，与个体随机差异无关。'},
+    {k:'B', t:'测量误差', why:'测量误差指观测值与真实值之间的记录偏差，属于数据采集误差，不是模型中的随机干扰项。'},
+    {k:'C', t:'随机干扰项', why:'正确。个别家庭的消费支出围绕其条件均值 E(Y|X) 上下波动，这一偏离由随机干扰项 u_i 概括。'},
+    {k:'D', t:'残差项', why:'残差 e_i 是样本回归线与观测值之差（估计后的量），与"总体中个别值偏离条件均值"的随机干扰项不是同一概念。'}],
+   answer:['C'],
+   analysis:'总体回归函数给出的是条件期望 E(Y|X_i)，而个别家庭的支出会在其周围随机波动，这个波动正是随机干扰项 u_i 的体现。残差 e_i 是 u_i 的样本估计，二者不可混用。',
+   k:['randomness','prfForm']},
+
+  {id:'2-4', type:'single', score:5.2,
+   stem:'在回归分析中，为什么我们通常无法知道总体回归函数（PRF）？',
+   options:[
+    {k:'A', t:'因为总体数据总是完整且可获得的', why:'与事实相反：总体数据往往不可获得，正因如此才需要抽样。'},
+    {k:'B', t:'因为总体数据通常是未知或不可获得的', why:'正确。总体规模往往无穷或不可穷尽，只能通过样本推断总体。'},
+    {k:'C', t:'因为样本数据总是等于总体数据', why:'样本只是总体的一个子集，若二者相等就不存在推断问题了。'},
+    {k:'D', t:'因为PRF是人为设定的', why:'PRF是客观存在的总体规律，只是不可直接观测，并非人为设定。'}],
+   answer:['B'],
+   analysis:'总体回归函数 Y 与 X 的真实关系客观存在，但总体数据通常不可获得（无限总体或调查成本限制），所以我们只能用样本回归函数（SRF）去估计它，估计必然带有抽样误差。',
+   k:['prf']},
+
+  {id:'2-5', type:'single', score:5.2,
+   stem:'总体回归模型的表达式为（ ）',
+   options:[
+    {k:'A', t:'<span class="fm">Y<sub>i</sub> = β<sub>0</sub> + β<sub>1</sub>X<sub>i</sub> + μ<sub>i</sub></span>', why:'正确。这是总体回归模型：真实参数 β₀、β₁ 加上随机干扰项 μ_i。'},
+    {k:'B', t:'<span class="fm">E(Y|X<sub>i</sub>) = β<sub>0</sub> + β<sub>1</sub>X<sub>i</sub></span>', why:'这是总体回归函数（条件期望形式），是模型的均值形式，少了随机项，故不完整。'},
+    {k:'C', t:'<span class="fm">Y<sub>i</sub> = β̂<sub>0</sub> + β̂<sub>1</sub>X<sub>i</sub> + e<sub>i</sub></span>', why:'带"帽子"的 β̂ 与残差 e_i 表明这是样本回归模型，不是总体回归模型。'},
+    {k:'D', t:'<span class="fm">Ŷ<sub>i</sub> = β̂<sub>0</sub> + β̂<sub>1</sub>X<sub>i</sub> + μ<sub>i</sub></span>', why:'Ŷ_i 是拟合值（在回归线上），与残差正交，不应再加随机项 μ_i，形式自相矛盾。'}],
+   answer:['A'],
+   analysis:'总体回归模型 Y_i = β₀ + β₁X_i + μ_i 含未知真实参数与随机干扰项；对两边取条件期望即得总体回归函数 E(Y|X_i) = β₀ + β₁X_i；把参数换成估计值、随机项换成残差则为样本回归模型。',
+   k:['prfForm']},
+
+  {id:'2-6', type:'single', score:5.2,
+   stem:'满足基本假定的线性单方程计量经济学模型的普通最小二乘估计量的特性有线性性、（ ）、最小方差性。',
+   options:[
+    {k:'A', t:'无偏性', why:'正确。高斯—马尔可夫定理：OLS 估计量是线性、无偏、方差最小的估计量（BLUE）。'},
+    {k:'B', t:'有偏性', why:'有偏是估计量的缺陷而非优良性质，与"线性性、最小方差性"并列说不通。'},
+    {k:'C', t:'渐进无偏性', why:'渐进无偏是大样本性质；满足基本假定的小样本下 OLS 是严格无偏的，用"渐进"反而降低了结论强度。'},
+    {k:'D', t:'一致性', why:'一致性也是大样本性质（依概率收敛于真值），不属于题干所指的小样本优良特性组合。'}],
+   answer:['A'],
+   analysis:'BLUE 三项：线性性（β̂ 是 Y 的线性组合）、无偏性（E(β̂)=β）、最小方差性（在所有线性无偏估计量中方差最小）。这三条共同构成高斯—马尔可夫定理的结论。',
+   k:['blue','linearity','unbiased','efficient']},
+
+  {id:'2-7', type:'single', score:5.2,
+   stem:'在总体回归直线 <span class="fm">E(Y|X) = β<sub>0</sub> + β<sub>1</sub>X</span> 中，<span class="fm">β<sub>1</sub></span> 表示（ ）',
+   options:[
+    {k:'A', t:'当 x 增加一个单位时，y 增加 <span class="fm">β<sub>1</sub></span> 个单位', why:'少了"平均"二字。个别观测值的变动还受随机项影响，不能断言"一定增加 β₁"。'},
+    {k:'B', t:'当 x 增加一个单位时，y 平均增加 <span class="fm">β<sub>1</sub></span> 个单位', why:'正确。β₁ 是条件期望的斜率，即 X 每增加一单位 Y 的平均变动量。'},
+    {k:'C', t:'当 y 增加一个单位时，x 增加 <span class="fm">β<sub>1</sub></span> 个单位', why:'把因果方向颠倒了：模型是 X 解释 Y，斜率不描述 X 随 Y 的变动。'},
+    {k:'D', t:'当 y 增加一个单位时，x 平均增加 <span class="fm">β<sub>1</sub></span> 个单位', why:'方向同样颠倒；若真要描述反向关系，系数应为 1/β₁。'}],
+   answer:['B'],
+   analysis:'β₁ 是边际效应：ΔE(Y|X)/ΔX = β₁。关键词是"平均"——它描述的是条件均值的变化，而非每个个体观测值的确定性变化，也不描述 Y 变动引起 X 变动。',
+   k:['beta1Meaning']},
+
+  {id:'2-8', type:'single', score:5.3,
+   stem:'可决系数（又称判定系数）<span class="fm">R<sup>2</sup></span> 是指（ ）',
+   options:[
+    {k:'A', t:'残差平方和占总离差平方和的比重', why:'RSS/TSS = 1 − R²，这是"未被解释的比重"，正好与 R² 相反。'},
+    {k:'B', t:'总离差平方和占回归平方和的比重', why:'比值倒置：TSS/ESS ≥ 1，不可能落在 [0,1] 区间，不能作为拟合优度。'},
+    {k:'C', t:'回归平方和占总离差平方和的比重', why:'正确。R² = ESS/TSS，取值 [0,1]。'},
+    {k:'D', t:'回归平方和占残差平方和的比重', why:'ESS/RSS 可以任意大，同样不是有界指标。'}],
+   answer:['C'],
+   analysis:'R² = ESS/TSS = 1 − RSS/TSS，衡量被解释变量的总离差中由回归模型解释的比例。它是有界指标（0≤R²≤1），越接近 1 拟合越好；其互补量 RSS/TSS 才是未解释比重。',
+   k:['r2','tss']},
+
+  {id:'2-9', type:'single', score:5.3,
+   stem:'在估计线性回归模型时，可以将总平方和分解为回归平方和与残差平方和，其中回归平方和表示（ ）',
+   options:[
+    {k:'A', t:'被解释变量的变化中可以用回归模型来解释的部分', why:'正确。ESS 度量拟合值围绕均值的波动，即模型已解释的部分。'},
+    {k:'B', t:'被解释变量的变化中未被回归模型来解释的部分', why:'这是残差平方和 RSS 的含义，两者恰好互补。'},
+    {k:'C', t:'解释变量的变化中可以用回归模型来解释的部分', why:'平方和分解针对的是被解释变量 Y 的总离差，与 X 自身的变化无关。'},
+    {k:'D', t:'解释变量的变化中未被回归模型来解释的部分', why:'同上，分解对象搞错了。'}],
+   answer:['A'],
+   analysis:'TSS = Σ(y_i − ȳ)² 分解为 ESS = Σ(ŷ_i − ȳ)²（已解释）与 RSS = Σ(y_i − ŷ_i)²（未解释）。回归平方和刻画的是 X 通过回归线对 Y 波动的解释能力。',
+   k:['tss','r2']},
+
+  {id:'2-10', type:'single', score:5.3,
+   stem:'在回归分析中，用来检验模型拟合优度的统计量是（ ）',
+   options:[
+    {k:'A', t:'可决系数', why:'正确。R²（及调整 R²）专门度量样本回归线对观测值的拟合程度。'},
+    {k:'B', t:'t 统计量', why:'t 统计量用于检验单个回归系数是否显著异于零，回答"变量有没有影响"，不回答"拟合得好不好"。'},
+    {k:'C', t:'F 统计量', why:'F 统计量检验方程整体的线性关系是否显著，与拟合优度是相关但不同的概念。'},
+    {k:'D', t:'以上三个都是', why:'三者用途不同：只有可决系数是拟合优度指标，不能一并归入。'}],
+   answer:['A'],
+   analysis:'拟合优度检验专用可决系数 R²（多元时常用调整 R²）。t 检验针对单个系数，F 检验针对模型整体显著性，虽然 R² 与 F 存在换算关系，但概念不能混同。',
+   k:['fitTest','r2','fTest']},
+
+  {id:'2-11', type:'single', score:5.3,
+   stem:'在古典回归模型的假定中，要求随机误差项之间（ ）',
+   options:[
+    {k:'A', t:'相关', why:'若误差项彼此相关（自相关），OLS 不再有效，常规 t、F 检验失效，正是假定要排除的情形。'},
+    {k:'B', t:'互不相关', why:'正确。无自相关假定：Cov(u_i, u_j) = 0（i ≠ j）。'},
+    {k:'C', t:'相容', why:'"相容"不是计量经济学的假定术语，无法对应任何基本假定。'},
+    {k:'D', t:'不作要求', why:'若不作要求，则无法推导 OLS 的方差与 BLUE 性质，假定体系就不完整。'}],
+   answer:['B'],
+   analysis:'无自相关（序列无关）假定要求不同观测的误差项互不相关，等价于 Cov(u_i,u_j)=0。违反该假定即为序列相关性问题。',
+   k:['noAutocorr','autocorr']},
+
+  {id:'2-12', type:'single', score:5.3,
+   stem:'最常用的统计检验包括拟合优度检验、解释变量的显著性检验和（ ）。',
+   options:[
+    {k:'A', t:'回归模型的总体显著性检验', why:'正确。即 F 检验，检验全部斜率是否同时为零。'},
+    {k:'B', t:'多重共线性检验', why:'多重共线性检验考察解释变量之间的关系，属计量经济学检验而非统计检验。'},
+    {k:'C', t:'异方差性检验', why:'异方差检验考察误差项方差假定，同样属计量经济学检验。'},
+    {k:'D', t:'预测检验', why:'预测检验是独立的一类检验（参数稳定性与外推能力），不属于"统计检验"三件套。'}],
+   answer:['A'],
+   analysis:'统计检验三件套：拟合优度检验（R²）、变量显著性检验（t）、方程总体显著性检验（F）。多重共线性与异方差检验针对基本假定，属于计量经济学检验层次。',
+   k:['statThree','statTest','testTypes']},
+
+  {id:'2-13', type:'single', score:5.3,
+   stem:'在一元线性回归模型中，变量的显著性检验采用的是（ ）检验统计量。',
+   options:[
+    {k:'A', t:'P', why:'P 值是检验的伴随概率，是判断依据之一，但不是检验统计量本身。'},
+    {k:'B', t:'F', why:'F 在一元模型中与 t 等价（F=t²），但"变量显著性"的标准做法是 t 检验。'},
+    {k:'C', t:'t', why:'正确。t = β̂₁/se(β̂₁) ~ t(n−2)，用于检验 H₀: β₁ = 0。'},
+    {k:'D', t:'R 的平方', why:'R² 度量拟合优度，不用于单个系数的显著性判断。'}],
+   answer:['C'],
+   analysis:'单个回归系数的显著性检验用 t 统计量，自由度 n−2（一元模型有 2 个参数）。F 检验针对方程整体，二者在一元模型中恰好等价（F = t²），但"变量的显著性"对应的仍是 t 检验。',
+   k:['statThree','tTestSingle']},
+
+  {id:'2-14', type:'multi', score:5.3,
+   stem:'设 Y 的估计值为 OLS 估计值、μ 为随机误差项，且 Y 与 X 为线性相关关系，则下列哪些是正确的（ ）。',
+   options:[
+    {k:'A', t:'<span class="fm">Y<sub>i</sub> = β<sub>0</sub> + β<sub>1</sub>X<sub>i</sub> + μ<sub>i</sub></span>', why:'正确。总体回归模型的标准形式。'},
+    {k:'B', t:'<span class="fm">E(Y|X<sub>i</sub>) = β<sub>0</sub> + β<sub>1</sub>X<sub>i</sub></span>', why:'正确。对 A 取条件期望（E(μ_i)=0）即得总体回归函数。'},
+    {k:'C', t:'<span class="fm">Y<sub>i</sub> = β̂<sub>0</sub> + β̂<sub>1</sub>X<sub>i</sub> + e<sub>i</sub></span>', why:'正确。样本回归模型：用估计值与残差替代真实参数与随机项。'},
+    {k:'D', t:'<span class="fm">Ŷ<sub>i</sub> = β̂<sub>0</sub> + β̂<sub>1</sub>X<sub>i</sub> + μ<sub>i</sub></span>', why:'错误。Ŷ_i 是回归线上的拟合值，满足 Ŷ_i = β̂₀ + β̂₁X_i，若再加随机项 μ_i 就与定义矛盾（拟合值不含随机成分）。'}],
+   answer:['A','B','C'],
+   analysis:'四个式子的关系：A 是总体回归模型，B 是总体回归函数（A 的条件期望），C 是样本回归模型，三者构成完整的"总体—样本"对应体系。D 把拟合值与随机项混在一起，是典型的概念嫁接错误。',
+   k:['prfForm','randomness']},
+
+  {id:'2-15', type:'multi', score:5.3,
+   stem:'不满足 OLS 基本假定的情况，主要包括（ ）',
+   options:[
+    {k:'A', t:'随机误差项不是同方差，而是异方差', why:'正确。违反同方差假定，即异方差。'},
+    {k:'B', t:'随机误差项存在自相关', why:'正确。违反无自相关假定，即序列相关性。'},
+    {k:'C', t:'解释变量是随机变量，且与随机误差项相关', why:'正确。违反"解释变量非随机（或与误差项无关）"假定，即随机解释变量/内生性问题。'},
+    {k:'D', t:'解释变量之间相关，存在多重共线性', why:'正确。违反无多重共线性假定，即多重共线性。'}],
+   answer:['A','B','C','D'],
+   analysis:'经典假定被违反的四种典型形式正好对应教材后续三大问题加内生性：多重共线性（D）、异方差（A）、序列相关（B）、随机解释变量（C）。因此四项全选。',
+   k:['olsAssump','mcDef','hetero','autocorr']},
+
+  {id:'2-16', type:'judge', score:5.3,
+   stem:'最小二乘估计的原理是使得从模型中抽取 n 组样本观测值的概率最大。',
+   options:[
+    {k:'A', t:'对', why:'"使样本出现概率最大"是极大似然估计（MLE）的原理，不是最小二乘。'},
+    {k:'B', t:'错', why:'正确判断。最小二乘的原理是使残差平方和 Σe² 最小。'}],
+   answer:['B'],
+   analysis:'两种估计原理要分清：OLS 让残差平方和最小（几何上使样本点与回归线"总体距离最近"）；MLE 让样本观测值出现的联合概率（似然函数）最大。在正态误差假定下二者数值结果一致，但原理不同，不能混为一谈。',
+   k:['olsPrinciple']},
+
+  {id:'2-17', type:'judge', score:5.3,
+   stem:'在简单线性回归模型中，F 检验与 t 检验是等价的。',
+   options:[
+    {k:'A', t:'对', why:'正确。一元模型中 F = t²，两个检验的原假设都是 β₁=0，结论必然一致。'},
+    {k:'B', t:'错', why:'这一说法在一元模型中成立，故判"错"不对。'}],
+   answer:['A'],
+   analysis:'一元模型中只有一个斜率，H₀: β₁=0 既可用 t 检验也可用 F 检验，且 F = t²，临界值之间也满足 F_α(1,n−2) = [t_{α/2}(n−2)]²，因此结论完全等价。多元模型中 F 检验的是所有斜率同时为零，与单个 t 检验不再等价。',
+   k:['tTestSingle','fTest']},
+
+  {id:'2-18', type:'judge', score:5.3,
+   stem:'当 <span class="fm">Σ(y<sub>t</sub> − ȳ)<sup>2</sup></span> 确定时，<span class="fm">Σ(ŷ<sub>t</sub> − ȳ)<sup>2</sup></span> 越小，表明模型的拟合优度越好。',
+   options:[
+    {k:'A', t:'对', why:'方向说反了：Σ(ŷ−ȳ)² 是 ESS，ESS 越大 R² 才越大。'},
+    {k:'B', t:'错', why:'正确判断。R² = ESS/TSS，TSS 固定时 ESS 越小，R² 越小，拟合越差。'}],
+   answer:['B'],
+   analysis:'Σ(y_t−ȳ)² 是总离差平方和 TSS，Σ(ŷ_t−ȳ)² 是回归平方和 ESS。R² = ESS/TSS，所以在 TSS 既定时，ESS 越大（而非越小）R² 越大，拟合优度越好；ESS 越小则残差部分越大，拟合越差。',
+   k:['r2','tss','fitTest']},
+
+  {id:'2-19', type:'fill', score:5.3,
+   stem:'回归分析中，解释变量为非随机变量，被解释变量为（ ）',
+   options:[],
+   answer:['随机变量'],
+   accept:['随机变量','随机'],
+   analysis:'模型含随机干扰项，被解释变量的取值带有随机性，因此是随机变量；解释变量在经典假定下被视为非随机的确定性变量（或与误差项无关的随机变量）。这与第1章第4题是同一考点。',
+   k:['randomness','olsAssump']}
+  ]
+});
+</script>
+<script>
+window.CH_ADD({
+  id:'ch3', no:'03', title:'多元线性回归模型', note:'参数含义 · F 检验 · t 检验 · P 值', raw:'原始成绩 100 / 100',
+  questions:[
+  {id:'3-1', type:'single', score:9.09,
+   stem:'半对数模型 <span class="fm">Y = β<sub>0</sub> + β<sub>1</sub>lnX + μ</span> 中，参数 <span class="fm">β<sub>1</sub></span> 的含义是（ ）',
+   options:[
+    {k:'A', t:'x 的绝对量变化，引起 y 的绝对量变化', why:'这是线性模型 Y=β₀+β₁X+μ 中 β₁ 的含义；本模型 X 以对数形式进入。'},
+    {k:'B', t:'y 关于 x 的边际变化', why:'边际变化指 ΔY/ΔX=β₁/X，是随 X 变化的量，而 β₁ 本身是常数，不能等同于边际变化。'},
+    {k:'C', t:'x 的相对变化，引起 y 的期望值绝对量变化', why:'正确。ΔY ≈ β₁·ΔX/X，故 β₁ 衡量 X 变动 1% 时 Y 的绝对变动（半弹性）。'},
+    {k:'D', t:'y 关于 x 的弹性', why:'弹性是双对数模型 lnY=β₀+β₁lnX+μ 中 β₁ 的含义，本模型 Y 未取对数。'}],
+   answer:['C'],
+   analysis:'对 Y=β₀+β₁lnX+μ 求导：dY/dX=β₁/X，因此 dY=β₁·(dX/X)。即 X 相对变动 100% 时 Y 变动 β₁，X 变动 1% 时 Y 变动 0.01β₁。所以 β₁ 反映"X 的相对变化引起 Y 的绝对量（期望值）变化"，也称半弹性。',
+   k:['semilog','loglog']},
+
+  {id:'3-2', type:'single', score:9.09,
+   stem:'在双对数线性模型 <span class="fm">lnY<sub>i</sub> = lnβ<sub>0</sub> + β<sub>1</sub>lnX<sub>i</sub> + u<sub>i</sub></span> 中，<span class="fm">β<sub>1</sub></span> 的含义是（ ）',
+   options:[
+    {k:'A', t:'Y 关于 X 的增长量', why:'增长量是绝对量差 ΔY，而弹性是相对变化之比，不含单位。'},
+    {k:'B', t:'Y 关于 X 的发展速度', why:'发展速度是时间序列中的环比/定基比值概念，与此处变量间的弹性无关。'},
+    {k:'C', t:'Y 关于 X 的边际倾向', why:'边际倾向（如边际消费倾向）是 dY/dX 的绝对量，不等于弹性。'},
+    {k:'D', t:'Y 关于 X 的弹性', why:'正确。dlnY/dlnX = β₁ = (dY/Y)/(dX/X)，即 Y 对 X 的弹性。'}],
+   answer:['D'],
+   analysis:'双对数模型中斜率系数直接就是弹性：X 变动 1%，Y 变动 β₁%。这也解释了为什么该模型常被用于估计需求价格弹性、生产函数的规模弹性等。',
+   k:['loglog']},
+
+  {id:'3-3', type:'single', score:9.09,
+   stem:'在模型 <span class="fm">Y<sub>t</sub> = β<sub>0</sub> + β<sub>1</sub>X<sub>1t</sub> + β<sub>2</sub>X<sub>2t</sub> + ε<sub>t</sub></span> 的回归结果分析中，有 <span class="fm">F = 263489.23</span>，对应的 p 值为 0.0000，这表明（ ）',
+   options:[
+    {k:'A', t:'解释变量 X<sub>1t</sub> 对被解释变量 Y<sub>t</sub> 的影响是显著的', why:'单个变量的显著性要看它的 t 检验与 p 值，F 检验不针对单个变量。'},
+    {k:'B', t:'解释变量 X<sub>2t</sub> 对被解释变量 Y<sub>t</sub> 的影响是显著的', why:'同上，F 显著不能推出某个特定变量显著。'},
+    {k:'C', t:'解释变量 X<sub>1t</sub>、X<sub>2t</sub> 对被解释变量 Y<sub>t</sub> 的联合影响是显著的', why:'正确。F 检验的原假设是"所有斜率同时为零"，拒绝即说明联合影响显著。'},
+    {k:'D', t:'解释变量 X<sub>1t</sub>、X<sub>2t</sub> 对被解释变量 Y<sub>t</sub> 的影响均不显著', why:'与 p=0.0000 的结论完全相反。'}],
+   answer:['C'],
+   analysis:'F 检验的原假设 H₀: β₁=β₂=0（所有斜率同时为零），p 值 0.0000 < α 故拒绝 H₀，说明解释变量对被解释变量的联合影响显著。注意"联合显著"≠"每个都显著"：完全可能出现 F 显著而某个 t 不显著（多重共线性的典型征兆）。',
+   k:['fTest','mcSym']},
+
+  {id:'3-4', type:'single', score:9.09,
+   stem:'k 为回归模型中参数个数（包括截距项），n 为样本容量，RSS 为残差平方和，ESS 为回归平方和。则对总体回归模型进行显著性检验时构造的 F 统计量为（ ）',
+   options:[
+    {k:'A', t:'<span class="fm">F = [ESS/(k−1)] / [RSS/(n−k)]</span>', why:'正确。分子分母分别为回归均方与残差均方，自由度 k−1 与 n−k。'},
+    {k:'B', t:'<span class="fm">F = [ESS/k] / [RSS/(n−k−1)]</span>', why:'自由度写错了：回归平方和的自由度是 k−1（斜率的个数），不是 k。'},
+    {k:'C', t:'<span class="fm">F = ESS / RSS</span>', why:'没有做自由度调整，只有两个自由度恰好相等时才近似成立，一般不能作为检验统计量。'},
+    {k:'D', t:'<span class="fm">F = 1 − [ESS/(k−1)] / [RSS/(n−k)]</span>', why:'形式错误：F 由两个均方之比构成，不存在"1 减"的结构。'}],
+   answer:['A'],
+   analysis:'F 统计量是两个独立的卡方变量各除以自由度后之比：F = [ESS/(k−1)]/[RSS/(n−k)] ~ F(k−1, n−k)。其中 k 含截距项，所以斜率个数为 k−1，残差自由度为 n−k。等价形式为 F = [R²/(k−1)]/[(1−R²)/(n−k)]。',
+   k:['fTest','tss']},
+
+  {id:'3-5', type:'single', score:9.09,
+   stem:'在多元回归分析中，F 检验是用来检验（ ）',
+   options:[
+    {k:'A', t:'回归模型的总体线性关系是否显著', why:'正确。F 检验的是所有解释变量对 Y 的联合线性关系。'},
+    {k:'B', t:'回归模型的各回归系数是否显著', why:'各系数的显著性由 t 检验逐个判断，不是 F 检验。'},
+    {k:'C', t:'经济意义是否合理', why:'经济意义检验考察参数符号与大小是否符合理论，不做统计量计算。'},
+    {k:'D', t:'回归方程的预测结果是否显著', why:'预测效果属于预测检验范畴，与 F 检验无关。'}],
+   answer:['A'],
+   analysis:'F 检验回答"整个方程是否成立"，t 检验回答"某个变量是否起作用"。多元模型中二者不可互相替代：F 显著只说明至少有一个变量有用。',
+   k:['fTest','statThree']},
+
+  {id:'3-6', type:'single', score:9.09,
+   stem:'线性回归模型 <span class="fm">y<sub>t</sub> = b<sub>0</sub> + b<sub>1</sub>x<sub>1t</sub> + b<sub>2</sub>x<sub>2t</sub> + ⋯ + b<sub>k</sub>x<sub>kt</sub> + ε<sub>t</sub></span> 中，检验 <span class="fm">H<sub>0</sub>: b<sub>i</sub> = 0</span> 时，所用的统计量 <span class="fm">t = β̂<sub>i</sub> / √var(β̂<sub>i</sub>)</span> 服从（ ）',
+   options:[
+    {k:'A', t:'<span class="fm">t(n−k+1)</span>', why:'自由度偏大：正确自由度为 n 减去参数个数（k+1）。'},
+    {k:'B', t:'<span class="fm">t(n−k−2)</span>', why:'多减了 1：在 n−k−1 的基础上又减一次，重复扣除。'},
+    {k:'C', t:'<span class="fm">t(n−k−1)</span>', why:'正确。模型含截距项共 k+1 个参数，残差自由度为 n−(k+1)=n−k−1。'},
+    {k:'D', t:'<span class="fm">t(n−k+2)</span>', why:'自由度反而增加，方向错误。'}],
+   answer:['C'],
+   analysis:'这里 k 表示解释变量（斜率）个数，加上截距共 k+1 个待估参数，因此残差平方和的自由度为 n−k−1，t 统计量服从 t(n−k−1)。一元模型 k=1 时退化为 t(n−2)，与前面章节一致。',
+   k:['tDf','tTestSingle']},
+
+  {id:'3-7', type:'single', score:9.09,
+   stem:'在假设检验中，关于 P 值的说法正确的是哪一个？（ ）',
+   options:[
+    {k:'A', t:'P 值越大，越倾向于拒绝原假设', why:'方向说反了：P 值越小，样本结果越不利于原假设，才越倾向于拒绝。'},
+    {k:'B', t:'P 值是原假设为真的概率', why:'P 值是在"原假设为真"的前提下计算的条件概率，不是原假设为真的后验概率。'},
+    {k:'C', t:'若 P < α，则在显著性水平 α 下拒绝原假设', why:'正确。P 值小于显著性水平即落入拒绝域。'},
+    {k:'D', t:'P 值通常与 1 进行比较来决定是否拒绝原假设', why:'P 值应与显著性水平 α（如 0.05、0.01）比较，而不是与 1 比较。'}],
+   answer:['C'],
+   analysis:'P 值＝在原假设成立时，得到当前或更极端样本结果的概率。判定规则是 P<α 则拒绝 H₀。它是最小的可拒绝原假设的显著性水平，因此越小的 P 值意味着证据越强。常见误区是把它当作"原假设为真的概率"。',
+   k:['pValue']},
+
+  {id:'3-8', type:'single', score:9.09,
+   stem:'如果考虑学历对薪酬的影响，引入的数据称为（ ）。',
+   options:[
+    {k:'A', t:'虚拟变量数据', why:'正确。学历是定性因素，量化为 0-1 虚拟变量后进入模型，这类数据即虚拟变量数据。'},
+    {k:'B', t:'时间序列数据', why:'若按同一对象的时间顺序记录才是时间序列；学历是截面上的属性。'},
+    {k:'C', t:'面板数据', why:'面板数据要求同时有个体与时间两维，题干未涉及时间维度。'},
+    {k:'D', t:'横截面数据', why:'虽然薪酬数据常为截面数据，但题干问的是"学历"这一因素的引入形式，答案是虚拟变量。'}],
+   answer:['A'],
+   analysis:'学历、性别、地区、所有制等定性因素无法直接以数值度量，需要构造虚拟变量（0-1 变量或分类变量）纳入模型。这类数据的属性是"虚拟变量数据"，与数据的截面/时序结构是两个不同的分类维度。',
+   k:['dummy']},
+
+  {id:'3-9', type:'multi', score:9.09,
+   stem:'在模型 <span class="fm">lnY<sub>i</sub> = lnβ<sub>0</sub> + β<sub>1</sub>lnX<sub>i</sub> + μ<sub>i</sub></span> 中（ ）',
+   options:[
+    {k:'A', t:'Y 与 X 是非线性的', why:'正确。变量以对数形式出现，Y 与 X 之间不是直线关系。'},
+    {k:'B', t:'Y 与 β<sub>1</sub> 是非线性的', why:'正确。Y 关于 β₁ 呈指数形式，故 Y 对 β₁ 非线性。'},
+    {k:'C', t:'lnY 与 β<sub>1</sub> 是线性的', why:'正确。模型关于参数 β₁ 是线性的，这是 OLS 可用的关键。'},
+    {k:'D', t:'lnY 与 lnX 是线性的', why:'正确。在对数尺度上二者是直线关系，故称"对数线性模型"。'}],
+   answer:['A','B','C','D'],
+   analysis:'该模型称为"参数线性、变量非线性"模型：关于参数 β₁（以及 lnβ₀）线性，因此可用 OLS 估计；但关于变量 Y、X 是非线性的。四个判断分别从不同对象与尺度出发，均正确——理解"线性回归"指的是对参数线性，而非对变量线性。',
+   k:['loglog','olsAssump']},
+
+  {id:'3-10', type:'fill', score:9.09,
+   stem:'多元线性回归模型中，采用（ ）来检验每个解释变量的显著性。',
+   options:[],
+   answer:['t检验'],
+   accept:['t检验','t 检验','T检验','t-test','ttest','检验'],
+   analysis:'多元模型中，每个偏回归系数单独做 t 检验（H₀: β_i=0），自由度 n−k−1；而方程整体的线性关系由 F 检验判断。二者结合才能既知"方程成立"，又知"哪些变量真正有用"。',
+   k:['statThree','tDf']},
+
+  {id:'3-11', type:'judge', score:9.1,
+   stem:'简单线性回归模型与多元线性回归模型的基本假定是相同的。',
+   options:[
+    {k:'A', t:'对', why:'忽略了多元模型特有的"解释变量之间不存在完全多重共线性"假定，以及矩阵形式的假定体系。'},
+    {k:'B', t:'错', why:'正确判断。多元模型额外要求解释变量之间不存在完全多重共线性，假定体系更严格。'}],
+   answer:['B'],
+   analysis:'一元与多元模型的假定有大量重叠（零均值、同方差、无自相关、正态性、解释变量非随机），但多元模型还必须假定解释变量之间不存在完全（严重）多重共线性，否则 (X′X) 不可逆、参数无法唯一识别。因此"完全相同"的说法不成立。',
+   k:['multiAssump','mcDef']}
+  ]
+});
+</script>
+<script>
+window.CH_ADD({
+  id:'ch4', no:'04', title:'多重共线性', note:'识别信号 · VIF · 修正思路', raw:'原始成绩 90 / 100',
+  questions:[
+  {id:'4-1', type:'single', score:10,
+   stem:'如果多元线性回归模型的整体 F 检验显著，但多数解释变量的 t 检验不显著，模型最有可能存在的问题是：',
+   options:[
+    {k:'A', t:'多重共线性', why:'正确。"整体显著 + 个体不显著"是多重共线性最典型的信号。'},
+    {k:'B', t:'异方差', why:'异方差影响的是标准误的准确性，不会系统性地造成"F 显著而多数 t 不显著"这一特定组合。'},
+    {k:'C', t:'设定偏误', why:'设定偏误（遗漏变量、形式错误）可能带来各种异常，其典型表现是残差有系统模式或系数剧烈变化，而非此题的标准组合。'},
+    {k:'D', t:'序列相关', why:'序列相关主要影响方差估计与检验有效性，典型表现是 DW 值异常，不是 F 与 t 的系统矛盾。'}],
+   answer:['A'],
+   analysis:'多重共线性使各解释变量"信息重叠"，模型整体仍有很强的解释力（F 显著、R² 高），但由于系数方差被放大，单个系数的 t 值变小，容易出现多数变量不显著。诊断可看相关系数矩阵与 VIF。',
+   k:['mcSym','vif']},
+
+  {id:'4-2', type:'single', score:10,
+   stem:'方差膨胀因子 VIF 是检验多重共线性的常用指标，一般认为当 VIF 大于多少时，模型存在较严重的多重共线性：',
+   options:[
+    {k:'A', t:'10', why:'正确。经验标准：VIF > 10（等价于容忍度 < 0.1）认为共线性严重。'},
+    {k:'B', t:'1', why:'VIF 的理论下界是 1（对应完全无相关），取 1 作为警戒线没有意义。'},
+    {k:'C', t:'5', why:'VIF > 5 只是"需要警惕"的较弱提示，教材与其他文献常用 10 作为严重共线性的界。'},
+    {k:'D', t:'100', why:'100 过于严格，许多实际上已无法得到稳定估计的模型其 VIF 远低于 100。'}],
+   answer:['A'],
+   analysis:'VIF_j = 1/(1−R_j²)，R_j² 是第 j 个解释变量对其余解释变量回归的可决系数。VIF=1 表示完全无关，VIF>10 表示该变量的方差被共线性放大了 10 倍以上，通常判定为严重共线性，需处理。',
+   k:['vif','mcTest']},
+
+  {id:'4-3', type:'single', score:10,
+   stem:'多元线性回归模型中的多重共线性问题是指：',
+   options:[
+    {k:'A', t:'被解释变量与解释变量之间存在非线性关系', why:'这是模型函数形式设定问题，不是共线性。'},
+    {k:'B', t:'随机误差项存在序列相关', why:'序列相关是误差项在不同观测间的相关，属于第六章内容。'},
+    {k:'C', t:'解释变量之间存在高度线性相关关系', why:'正确。共线性专指解释变量之间的近似线性依赖。'},
+    {k:'D', t:'随机误差项存在异方差', why:'异方差是误差项方差随观测变化，属于第五章内容。'}],
+   answer:['C'],
+   analysis:'多重共线性描述的是"解释变量矩阵 X 的列之间近似线性相关"，与误差项的性质无关。完全共线性时 (X′X) 奇异、参数不可识别；近似共线性时参数虽可估计但方差极大。',
+   k:['mcDef']},
+
+  {id:'4-4', type:'fill', score:10,
+   stem:'处理多重共线性时，通过逐个引入变量、逐步剔除不显著变量来筛选最优模型的方法称为＿＿＿＿。',
+   options:[],
+   answer:['逐步回归法'],
+   accept:['逐步回归法','逐步回归','stepwise'],
+   analysis:'逐步回归法（stepwise）从一个变量开始，按偏 F 检验或 t 检验逐步加入（前向）或剔除（后向）变量，观察 R² 变化与各变量显著性，既可用于检测共线性，也可用于修模。',
+   k:['stepwise','mcFix']},
+
+  {id:'4-5', type:'fill', score:10,
+   stem:'处理多重共线性问题的标准流程包含四个环节：产生原因识别、不良后果判断、＿＿＿＿、模型修正。',
+   options:[],
+   answer:['多重共线性检验'],
+   accept:['多重共线性检验','共线性检验','检验'],
+   analysis:'完整流程：先查明共线性从何而来（样本太小？趋势相同？变量同源？），再判断后果严重程度，然后用相关系数矩阵、VIF、条件数等手段检验确认，最后才选择修正方案。漏掉检验就会出现"无病乱治"。',
+   k:['mcFlow','mcTest']},
+
+  {id:'4-6', type:'multi', score:10,
+   stem:'下列情形中，可能导致多元线性回归模型出现多重共线性的有：',
+   options:[
+    {k:'A', t:'样本量过小，导致解释变量之间的样本相关系数偏高', why:'正确。样本量过小时偶然相关容易被放大，是共线性的常见成因。'},
+    {k:'B', t:'解释变量之间存在共同的时间趋势，如多个宏观经济变量随经济增长同步上升', why:'正确。共同趋势使变量高度相关，是宏观时序模型的典型共线性来源。'},
+    {k:'C', t:'模型中同时纳入了某变量的水平项和其滞后项作为解释变量', why:'正确。X_t 与 X_{t−1} 通常高度相关，同时入模必然共线。'},
+    {k:'D', t:'模型中同时纳入居民可支配收入和居民消费支出作为解释变量', why:'正确。二者同向变动、相关度极高，是教材常举的共线性例子。'}],
+   answer:['A','B','C','D'],
+   analysis:'共线性的根源可归为四类：样本信息不足（A）、变量有共同趋势（B）、变量本身存在派生关系（C：滞后项是同一变量的另一期）、经济变量内在关联（D：收入与消费同源）。四项均会显著提高变量间的相关性。',
+   k:['mcCause']},
+
+  {id:'4-7', type:'multi', score:10,
+   stem:'当模型存在严重多重共线性时，下列修正思路合理的有：',
+   options:[
+    {k:'A', t:'增加样本容量，降低变量之间的样本相关程度', why:'正确。扩大样本、增加变量变异，可降低样本相关、减小方差。'},
+    {k:'B', t:'直接删除所有不显著的变量，无需考虑变量的经济意义', why:'错误。机械删除会丢掉理论上必须保留的关键变量，造成遗漏变量偏误，甚至破坏模型的经济含义。'},
+    {k:'C', t:'直接剔除与其他变量高度相关、且经济含义相对次要的解释变量', why:'正确。在保留核心变量的前提下剔除次要的重复信息变量，是常用做法。'},
+    {k:'D', t:'通过变量变换，如将名义变量转换为实际变量、构造相对指标，降低变量间的相关性', why:'正确。比率化、实际化、差分等变换能削弱共同趋势带来的相关。'}],
+   answer:['A','C','D'],
+   analysis:'修正共线性的原则是"在保住经济含义的前提下减少信息重叠"：增量信息（A）、去冗余（C）、改度量（D）都符合。B 只看显著性不看经济意义，属于典型的错误做法。',
+   k:['mcFix']},
+
+  {id:'4-8', type:'multi', score:10,
+   stem:'下列方法中，可以用于检验多重共线性的有：',
+   options:[
+    {k:'A', t:'计算解释变量之间的简单相关系数矩阵', why:'正确。两两相关系数偏高（如 >0.8）是共线性的初步信号。'},
+    {k:'B', t:'怀特检验', why:'错误。White 检验用于检验异方差，与共线性无关。'},
+    {k:'C', t:'计算方差膨胀因子（VIF）', why:'正确。VIF 是最常用的共线性定量指标。'},
+    {k:'D', t:'逐步回归法，即将解释变量逐个引入模型，观察拟合优度变化和各变量的显著性', why:'正确。若新增变量使 R² 几乎不增而 t 值普遍下降，提示共线性。'}],
+   answer:['A','C','D'],
+   analysis:'共线性检验常用：相关系数矩阵、VIF/容忍度、逐步回归观察、条件数、特征值分析。White 检验、G-Q 检验、Park 检验属于异方差检验家族，是本题的干扰项。',
+   k:['mcTest','white']},
+
+  {id:'4-9', type:'multi', score:10,
+   stem:'下列关于多重共线性对多元线性回归模型影响的说法，正确的有：',
+   options:[
+    {k:'A', t:'模型的整体拟合效果会出现大幅下降', why:'错误。共线性并不破坏模型的整体解释力，R² 往往仍然很高，这正是"F 显著"的原因。'},
+    {k:'B', t:'变量的 t 检验容易出现不显著的结果', why:'正确。系数方差被放大，t 值变小。'},
+    {k:'C', t:'参数估计量的经济含义可能出现扭曲，甚至符号与理论预期相反', why:'正确。系数在高度相关的变量间"分摊"影响，容易出现反常符号。'},
+    {k:'D', t:'参数估计量的方差会增大，估计精度下降', why:'正确。这是共线性最直接的统计后果。'}],
+   answer:['B','C','D'],
+   analysis:'共线性的后果集中在"估计精度"与"系数解释"：方差膨胀、t 值变小、符号反常。但它不会明显降低 R² 或 F 值——如果整体拟合也大幅下降，说明问题不在共线性本身。',
+   k:['mcConseq']},
+
+  {id:'4-10', type:'judge', score:10,
+   stem:'逐步回归法是处理多重共线性的常用方法，通过逐个引入变量并剔除不显著变量，可以减少模型中解释变量的共线性程度。',
+   options:[
+    {k:'A', t:'对', why:'正确。逐步引入/剔除能去掉信息重叠的变量，从而降低共线性程度。'},
+    {k:'B', t:'错', why:'该表述与逐步回归的实际作用一致，判"错"不对。'}],
+   answer:['A'],
+   analysis:'逐步回归通过变量筛选减少重叠信息，确实能缓解共线性；但它同时是一个"以统计显著性为准则"的过程，可能剔除经济上重要的变量，因此要结合理论判断，并以 R²、系数符号稳定性作为辅助检查。',
+   k:['stepwise','mcFix']}
+  ]
+});
+</script>
+<script>
+window.CH_ADD({
+  id:'ch5', no:'05', title:'异方差', note:'后果 · White 检验 · WLS 与稳健标准误', raw:'原始成绩 85 / 100',
+  questions:[
+  {id:'5-1', type:'single', score:5,
+   stem:'在研究居民家庭消费支出与可支配收入的横截面回归模型中，若存在异方差问题，普通最小二乘（OLS）估计量的性质是？',
+   options:[
+    {k:'A', t:'无偏且有效', why:'异方差破坏的正是"有效性"：方差不再最小，所以不能说有效。'},
+    {k:'B', t:'无偏但非有效', why:'正确。异方差不影响线性性与无偏性，但使 OLS 不再是方差最小的估计量。'},
+    {k:'C', t:'有偏且非有效', why:'异方差本身不会导致偏误；有偏通常来自遗漏变量、测量误差或内生性。'},
+    {k:'D', t:'有偏但有效', why:'两个判断都错：既未失去无偏性，又已失去有效性。'}],
+   answer:['B'],
+   analysis:'异方差不改变 E(β̂)=β（无偏仍然成立），但 β̂ 的方差不再是最小的，因此不再是 BLUE；同时常规标准误估计有偏，t、F 检验不再可靠。修正方向是用 WLS 或稳健标准误。',
+   k:['heteroConseq','hetero']},
+
+  {id:'5-2', type:'single', score:5,
+   stem:'下列检验方法中，不需要对异方差的具体形式做出先验假设，适用于大样本的异方差检验方法是？',
+   options:[
+    {k:'A', t:'戈德菲尔德-匡特（G-Q）检验', why:'G-Q 检验需要事先设定按某个解释变量排序、并指定删去的中间观测数，依赖对异方差形式的判断。'},
+    {k:'B', t:'怀特（White）检验', why:'正确。White 检验不依赖异方差的具体形式，用辅助回归与大样本统计量判断。'},
+    {k:'C', t:'帕克（Park）检验', why:'Park 检验假定 Var(u_i)=σ²X_i^α 这一具体形式，属于"有形式假设"的检验。'},
+    {k:'D', t:'戈里瑟（Glejser）检验', why:'Glejser 检验同样需要假定 |e| 与 X 的某种具体函数形式（如线性、倒数、平方根）。'}],
+   answer:['B'],
+   analysis:'White 检验的辅助回归把 e² 对所有解释变量、其平方项与交叉项回归，不需要事先知道异方差依赖哪个变量、以何种函数形式出现，因此适用面最广，但要求较大样本（自由度高）。G-Q、Park、Glejser 都带有形式假定。',
+   k:['white','hetero']},
+
+  {id:'5-3', type:'single', score:5,
+   stem:'若通过检验明确发现回归模型的随机干扰项方差与解释变量 X 满足 Var(u) = σ²X²，为修正异方差应采用的加权最小二乘权重为？',
+   options:[
+    {k:'A', t:'w<sub>i</sub> = 1/X<sub>i</sub>', why:'权重取方差的倒数。若方差为 σ²X²，倒数是 1/X²，取 1/X 会使加权后仍残留异方差。'},
+    {k:'B', t:'w<sub>i</sub> = 1/X<sub>i</sub><sup>2</sup>', why:'正确。w_i = 1/Var(u_i) = 1/(σ²X_i²) ∝ 1/X_i²，等价于把原模型两边同除以 X_i 再做 OLS。'},
+    {k:'C', t:'w<sub>i</sub> = X<sub>i</sub>', why:'方向相反：这会给方差大的观测更大权重，反而放大异方差。'},
+    {k:'D', t:'w<sub>i</sub> = X<sub>i</sub><sup>2</sup>', why:'同样是把权重给了波动最大的观测，与 WLS 的原理相悖。'}],
+   answer:['B'],
+   analysis:'WLS 的权重应与误差方差成反比：w_i = 1/σ_i²。当 σ_i²=σ²X_i² 时，w_i ∝ 1/X_i²。直观含义是"波动大的观测给小的权重"，这样估计量才重新达到方差最小。',
+   k:['wls']},
+
+  {id:'5-4', type:'multi', score:8,
+   stem:'下列横截面数据建模场景中，容易产生异方差问题的有？',
+   options:[
+    {k:'A', t:'利用全国31个省份的截面数据研究地区 GDP 对财政收入的影响', why:'正确。省份规模差异巨大，误差的离散程度随规模变化。'},
+    {k:'B', t:'利用1000户不同收入水平家庭的截面数据研究可支配收入对消费支出的影响', why:'正确。这是异方差的经典案例：高收入家庭消费的离散度明显更大。'},
+    {k:'C', t:'利用某企业连续30年的月度时间序列数据研究广告投入对销售额的影响', why:'错误。这是同一单位的时间序列数据，规模相对稳定，异方差不是其主要问题（更可能面临序列相关）。'},
+    {k:'D', t:'利用大中小微不同规模企业的截面数据研究研发投入对企业利润的影响', why:'正确。企业规模跨度极大，误差方差随规模系统性变化。'}],
+   answer:['A','B','D'],
+   analysis:'异方差多源于"规模差异"在横截面上造成的离散度不同。A、B、D 都是截面数据且单位规模悬殊，因此易出现异方差；C 是单一对象的时间序列，规模差异不明显，主要风险是序列相关。',
+   k:['heteroSrc','hetero']},
+
+  {id:'5-5', type:'multi', score:8,
+   stem:'当经典线性回归模型存在异方差时，下列说法正确的有？',
+   options:[
+    {k:'A', t:'OLS 估计量仍然满足线性性和无偏性', why:'正确。异方差不影响估计量的线性形式与期望。'},
+    {k:'B', t:'OLS 估计量的方差不再是所有线性无偏估计量中的最小值', why:'正确。这正是"非有效"的含义。'},
+    {k:'C', t:'通常使用的 OLS 标准误估计量是有偏的', why:'正确。常规标准误基于同方差公式，在异方差下系统性偏误。'},
+    {k:'D', t:'基于 OLS 结果构建的 t 检验和 F 检验仍然完全可靠', why:'错误。标准误有偏导致 t、F 统计量失真，检验结论不可靠，这正是需要稳健标准误的原因。'}],
+   answer:['A','B','C'],
+   analysis:'异方差的"三真一假"：线性性、无偏性保留（A），有效性丧失（B），标准误有偏（C），因此 t、F 检验不可靠（D 错）。修正手段是 WLS 或异方差稳健标准误。',
+   k:['heteroConseq']},
+
+  {id:'5-6', type:'multi', score:8,
+   stem:'当模型存在异方差时，下列可用于提升估计结果有效性与稳健性的方法有？',
+   options:[
+    {k:'A', t:'使用异方差稳健标准误调整 OLS 估计的推断结果', why:'正确。不改变系数，只修正标准误，使推断可靠。'},
+    {k:'B', t:'根据异方差的具体形式选择合适权重，采用加权最小二乘法估计', why:'正确。若能确定方差形式，WLS 可恢复有效性。'},
+    {k:'C', t:'对被解释变量或解释变量取对数以压缩变量尺度，缓解异方差', why:'正确。取对数可压缩量纲、稳定方差，是常用的经验做法。'},
+    {k:'D', t:'在模型中增加更多的解释变量，一定可以完全消除异方差', why:'错误。"一定完全消除"过于绝对；增加变量未必针对异方差来源，还可能引入共线性。'}],
+   answer:['A','B','C'],
+   analysis:'三条有效路径：修正推断（稳健标准误）、修正估计（WLS/可行 GLS）、修正数据尺度（取对数）。D 的问题在于"一定"和"完全"——加变量既非对症，也破坏不了异方差的根本来源（个体规模差异）。',
+   k:['robust','wls','logFix']},
+
+  {id:'5-7', type:'multi', score:8,
+   stem:'在利用横截面数据分析"家庭消费支出 Y 与家庭可支配收入 X"的关系时，经常观察到异方差现象。下列哪些经济学机制可以合理解释这一现象？',
+   options:[
+    {k:'A', t:'低收入家庭的消费受限于基本生存需求，选择空间小，支出波动较小', why:'正确。收入低时支出被生存需求"锁定"，离散度小。'},
+    {k:'B', t:'高收入家庭在满足基本需求后有大量自由支配资金，消费偏好差异导致支出波动较大', why:'正确。可自由支配的空间大，个体间偏好差异被放大为更大的支出波动。'},
+    {k:'C', t:'随着收入规模的扩大，消费的离散程度往往随之增加', why:'正确。这是对 A、B 的概括，也是异方差在消费函数中的经验规律。'},
+    {k:'D', t:'高收入家庭的边际消费倾向必然低于低收入家庭，导致系统性偏差', why:'错误。边际消费倾向的差异影响的是斜率（可写成变参数模型），并不直接产生"方差随收入增大"的异方差；"必然"也过于绝对。'}],
+   answer:['A','B','C'],
+   analysis:'异方差的经济机制要落在"离散程度"上：低收入→被动压缩选择→波动小；高收入→选择自由→波动大。因此 A、B、C 都直接解释方差随 X 增大。D 讲的是均值结构（斜率差异），与误差方差不是同一件事。',
+   k:['heteroSrc','hetero']},
+
+  {id:'5-8', type:'multi', score:8,
+   stem:'针对存在异方差的线性回归模型，下列关于修正手段的说法中，正确的有：',
+   options:[
+    {k:'A', t:'若确切知道 Var(u) = σ²X<sub>i</sub><sup>2</sup>，可将原模型两边同除以 X<sub>i</sub> 后再进行 OLS 估计，以获得 BLUE', why:'正确。同除 X_i 等价于以 1/X_i² 为权重的 WLS，变换后误差同方差，OLS 即为 BLUE。'},
+    {k:'B', t:'使用 White 稳健标准误可以在不改变 OLS 系数估计值的前提下，修正假设检验的可靠性', why:'正确。稳健标准误只改变标准误与统计量，系数点估计完全不变。'},
+    {k:'C', t:'加权最小二乘法（WLS）在任何形式的异方差下都必然比普通最小二乘法（OLS）更有效', why:'错误。只有当权重与真实方差结构一致时 WLS 才更有效；权重设错可能比 OLS 更差。'}],
+   answer:['A','B'],
+   analysis:'A 是"变换法"（等价 WLS），B 是"稳健推断法"，两者都是标准修正手段，且原理不同。C 的问题在于 WLS 的有效性依赖权重设定正确——若误设权重，反而可能损失效率，因此不能说"任何形式下必然更有效"。',
+   k:['wls','robust']},
+
+  {id:'5-9', type:'fill', score:5,
+   stem:'经典线性回归模型的同方差假设是指，对于解释变量的所有观测值，随机干扰项 u<sub>i</sub> 的＿＿＿＿保持恒定。',
+   options:[],
+   answer:['方差'],
+   accept:['方差','方差σ²','variance','方差σ2'],
+   analysis:'同方差假定：Var(u_i) = σ²（对所有 i 相同）。它保证 OLS 估计量的方差可以简洁表达，并使 OLS 成为 BLUE；一旦 Var(u_i) 随 i 改变，就是异方差。',
+   k:['hetero','olsAssump']},
+
+  {id:'5-10', type:'judge', score:5,
+   stem:'在分析各省人均 GDP 与人均教育支出的关系时，若东部发达省份的数据点在回归线周围的散布范围明显宽于西部欠发达省份，这说明模型很可能存在由区域差异和规模差异共同引起的异方差问题。',
+   options:[
+    {k:'A', t:'对', why:'正确。散布范围随省份发达程度系统性变化，正是异方差的可视化特征。'},
+    {k:'B', t:'错', why:'这一现象恰恰是异方差的典型图形表现，判"错"不正确。'}],
+   answer:['A'],
+   analysis:'把残差（或散点）按某个解释变量分组观察离散程度，是判断异方差最直观的方法：若某一组的散布明显更宽，就提示误差方差与该变量相关。这里发达省份规模大、结构复杂，波动更大，符合异方差的经济逻辑。',
+   k:['hetero','heteroSrc','bpStata']},
+
+  {id:'5-11', type:'case', score:35,
+   stem:'为研究教育投资的回报率问题，收集了 523 个工人的小时工资（wage）、受教育年限（edu）和工龄（exper）的数据，在 Stata 的命令窗口中输入如下命令：',
+   commands:[
+    ['①','reg wage edu exper'],
+    ['②','predict e, residual'],
+    ['③','gen e2 = e^2'],
+    ['④','reg e2 edu exper'],
+    ['⑤','reg e2 edu'],
+    ['⑥','reg wage edu exper, robust']
+   ],
+   stem2:'得到表1—表4的回归结果，请结合表中报告的结果完成下列各题。（有效数字保留到小数点后3位）',
+   tables:[
+    {cap:'表1　OLS 估计结果（被解释变量：wage）',
+     head:['变量','系数','标准误','t 值','P&gt;|t|','95% 置信区间'],
+     rows:[['edu','.913018','.0821896','11.11','0.000','.7515535　1.074483'],
+           ['exper','.0968097','.0177193','5.46','0.000','.0619995　.13162'],
+           ['_cons','−4.524472','1.239348','−3.65','0.000','−6.959217　−2.089727']],
+     foot:'Number of obs = 523　F(2, 520) = 62.96　Prob &gt; F = 0.0000　R-squared = 0.1950　Adj R-squared = 0.1919　Root MSE = 4.6236'},
+    {cap:'表2　BP 检验辅助回归（被解释变量：e2）',
+     head:['变量','系数','标准误','t 值','P&gt;|t|','95% 置信区间'],
+     rows:[['edu','3.344307','1.157485','2.89','0.004','1.070386　5.618228'],
+           ['exper','.0976494','.2495429','0.39','0.696','−.3925867　.5878855'],
+           ['_cons','−24.04287','17.45386','−1.38','0.169','−58.33161　10.24588']],
+     foot:'Number of obs = 523　F(2, 520) = 4.41　Prob &gt; F = 0.0126　R-squared = 0.0167　Adj R-squared = 0.0129　Root MSE = 65.114'},
+    {cap:'表3　辅助回归（被解释变量：e2）',
+     head:['变量','系数','标准误','t 值','P&gt;|t|','95% 置信区间'],
+     rows:[['edu','3.181992','1.07973','2.95','0.003','1.060833　5.303151'],
+           ['_cons','−20.15368','14.33606','−1.41','0.160','−48.31726　8.009902']],
+     foot:'Number of obs = 523　F(1, 521) = 8.68　Prob &gt; F = 0.0034　R-squared = 0.0164　Adj R-squared = 0.0145　Root MSE = 65.061'},
+    {cap:'表4　异方差稳健标准误回归（被解释变量：wage）',
+     head:['变量','系数','稳健标准误','t 值','P&gt;|t|','95% 置信区间'],
+     rows:[['edu','.913018','.0884542','10.32','0.000','.7392465　1.08679'],
+           ['exper','.0968097','.0186757','5.18','0.000','.0601207　.1334988'],
+           ['_cons','−4.524472','1.273102','−3.55','0.000','−7.025527　−2.023417']],
+     foot:'Number of obs = 523　F(2, 520) = 53.92　Prob &gt; F = 0.0000　R-squared = 0.1950　Root MSE = 4.6236'}
+   ],
+   parts:[
+    {n:'（1）', stem:'根据表1，教育收益率（即 edu 的系数）为多少？（保留三位小数）',
+     answer:['0.913'], accept:['0.913','.913'],
+     analysis:'表1 中 edu 的系数为 .913018，保留三位小数为 0.913。含义是：在其他条件（工龄）不变时，多受一年教育，小时工资平均高约 0.913 个单位（约 91.3%——因被解释变量为工资的对数口径时即为收益率，本题按系数直接解读为工资的绝对增量）。',
+     k:['bpStata','beta1Meaning']},
+    {n:'（2）', stem:'根据表1，工龄的系数为多少？（保留三位小数）',
+     answer:['0.097'], accept:['0.097','.097'],
+     analysis:'表1 中 exper 的系数为 .0968097，保留三位小数为 0.097，即工龄每增加一年，小时工资平均高约 0.097 个单位。其 t 值 5.46、P 值 0.000，说明在 1% 水平上显著。',
+     k:['bpStata','beta1Meaning']},
+    {n:'（3）', stem:'表2 的 BP 辅助回归中，F 检验的 P 值为 0.0126，据此判断原模型存在什么问题？',
+     answer:['异方差'], accept:['异方差','存在异方差','异方差性'],
+     analysis:'BP 检验的辅助回归是 e² 对解释变量回归，其 F 检验的 P 值 0.0126 < 0.05，拒绝"同方差"原假设，说明原模型存在异方差。命令④ reg e2 edu exper 正是 BP 检验的辅助回归。',
+     k:['bp','white','hetero']},
+    {n:'（4）', stem:'表3 只把 e2 对 edu 回归，F 检验 P 值为 0.0034，说明模型仍存在什么问题？',
+     answer:['异方差'], accept:['异方差','存在异方差','异方差性'],
+     analysis:'命令⑤ reg e2 edu 是把辅助回归简化为只含 edu，F 检验 P 值 0.0034 同样拒绝同方差假定，说明异方差依然存在，并且可以主要由 edu 解释。这一步的作用是定位异方差与哪个变量相关。',
+     k:['bp','hetero']},
+    {n:'（5）', stem:'结合表2、表3 的显著性，异方差主要与哪个解释变量相关？',
+     answer:['edu'], accept:['edu','教育','受教育年限','edu（受教育年限）'],
+     analysis:'表2 中 edu 的 t=2.89（P=0.004）显著，而 exper 的 t=0.39（P=0.696）不显著；表3 单独用 edu 也显著（P=0.003）。因此 e² 的变动主要与 edu 相关，异方差随受教育年限增大而加大。',
+     k:['bp','hetero']},
+    {n:'（6）', stem:'表4 由命令⑥得到，其中报告的标准误属于哪一类标准误？',
+     answer:['异方差稳健'], accept:['异方差稳健','异方差稳健标准误','稳健标准误','white稳健','white'],
+     analysis:'命令⑥加了 robust 选项，Stata 输出的是异方差稳健标准误（White 稳健标准误）。它不改变系数估计值（与表1 完全一致），只调整标准误，使 t 检验在异方差下仍然可靠。',
+     k:['robust','bpStata']},
+    {n:'（7）', stem:'对比表1 与表4，系数完全相同，但 edu 的标准误由 .0821896 变为 .0884542 等，说明稳健回归改变的是估计量的什么？',
+     answer:['标准差'], accept:['标准差','标准误','标准差的估计','标准误估计'],
+     analysis:'两表的系数点估计完全相同（.913018、.0968097、−4.524472），变化的是标准误（标准差）及其派生的 t 值、P 值与置信区间。这正是"稳健标准误只修正推断、不改变点估计"的体现：表1 的 t 值 11.11 降为 10.32，说明原标准误被低估。',
+     k:['robust']}
+   ],
+   analysis:'本题完整演示了异方差的标准处理流程：先做 OLS（命令①），再取残差并构造 e²（②③），用 BP 辅助回归检验异方差（④⑤），最后用稳健标准误修正推断（⑥）。结论：模型存在异方差，且主要与 edu 相关；稳健标准误不改变系数，只把被低估的标准误修正回来。',
+   k:['bp','white','wls','robust','heteroConseq']}
+  ]
+});
+</script>
+<script>
+window.CH_ADD({
+  id:'ch6', no:'06', title:'时间序列分析', note:'自相关 · 平稳性与单位根 · 协整 · 格兰杰因果', raw:'原始成绩 93.7 / 100',
+  questions:[
+  {id:'6-1', type:'single', score:6.2,
+   stem:'序列相关性是指：',
+   options:[
+    {k:'A', t:'解释变量之间存在高度相关关系', why:'这是多重共线性，描述的是 X 之间，不是扰动项之间的关系。'},
+    {k:'B', t:'随机扰动项在不同观测期之间存在相关关系', why:'正确。Cov(u_t, u_{t−s}) ≠ 0（s≠0）即序列相关（自相关）。'},
+    {k:'C', t:'被解释变量与解释变量之间不存在线性关系', why:'这是模型设定或相关性问题，与扰动项的自相关无关。'},
+    {k:'D', t:'模型中的参数随时间发生改变', why:'这是参数不稳定（结构变化）问题，需用邹氏检验等判断。'}],
+   answer:['B'],
+   analysis:'序列相关性（自相关）专指随机扰动项在时间上的相关：E(u_t u_{t−s}) ≠ 0。它与多重共线性（解释变量之间相关）是两个不同层面的问题，不要混淆。',
+   k:['autocorr','noAutocorr']},
+
+  {id:'6-2', type:'single', score:6.2,
+   stem:'当 DW 统计量的值接近 2 时，可以得出的结论是：',
+   options:[
+    {k:'A', t:'模型存在完全的正一阶序列相关', why:'完全正相关对应 ρ=1，此时 DW≈0，不是 2。'},
+    {k:'B', t:'模型存在完全的负一阶序列相关', why:'完全负相关对应 ρ=−1，此时 DW≈4。'},
+    {k:'C', t:'模型不存在一阶自相关', why:'正确。DW≈2 对应 ρ̂≈0，即一阶自相关不存在。'},
+    {k:'D', t:'模型一定不存在高阶序列相关', why:'DW 只针对一阶自相关，无法判断高阶；这是最容易出错的选项。'}],
+   answer:['C'],
+   analysis:'DW ≈ 2(1−ρ̂)，取值 0~4：DW≈0 完全正自相关，DW≈2 无一阶自相关，DW≈4 完全负自相关。但 DW 检验有明确局限：只检验一阶、需要含常数项、不适用于含滞后被解释变量的模型，且存在无法判定的不确定区域。',
+   k:['dw','autocorr']},
+
+  {id:'6-3', type:'single', score:6.2,
+   stem:'若某时间序列 Y<sub>t</sub> 经过一次差分后变为平稳序列，且该序列可以表示为 Y<sub>t</sub> = Y<sub>t−1</sub> + ε<sub>t</sub>（ε<sub>t</sub> 为白噪声），则该序列属于：',
+   options:[
+    {k:'A', t:'平稳时间序列', why:'随机游走的方差随时间线性增长（趋于无穷），本身并不平稳。'},
+    {k:'B', t:'一阶单整序列 I(1)', why:'正确。经一次差分后平稳，即为 I(1)，随机游走是典型例子。'},
+    {k:'C', t:'二阶单整序列 I(2)', why:'I(2) 需要差分两次才平稳，与题干"一次差分即平稳"不符。'},
+    {k:'D', t:'趋势平稳序列', why:'趋势平稳序列去掉确定性趋势后就平稳，不含单位根，与 Y_t=Y_{t−1}+ε_t 的结构不同。'}],
+   answer:['B'],
+   analysis:'若序列需差分 d 次才平稳，则记为 I(d)。Y_t = Y_{t−1} + ε_t 是随机游走：ΔY_t = ε_t 为白噪声，故 d=1，属于 I(1)。它的方差随 t 增大而无界增长，所以非平稳，直接回归易产生伪回归。',
+   k:['unitRoot','spurious']},
+
+  {id:'6-4', type:'single', score:6.2,
+   stem:'下列关于单位根检验的说法，错误的是：',
+   options:[
+    {k:'A', t:'DF 检验假设随机误差项不存在自相关', why:'说法正确。DF 检验要求误差项为白噪声，否则统计量分布失真，这正需要 ADF 来修正。'},
+    {k:'B', t:'ADF 检验可以处理存在高阶自相关的时间序列单位根检验问题', why:'说法正确。ADF 通过在回归中加入 ΔY 的滞后项来吸收高阶自相关。'},
+    {k:'C', t:'若 ADF 检验的 t 统计量大于给定显著性水平下的临界值，则拒绝原假设认为序列平稳', why:'错误（本题答案）。ADF 是左侧单尾检验，只有 t 统计量小于临界值（更负）时才拒绝原假设。'},
+    {k:'D', t:'单位根检验的原假设是序列存在单位根', why:'说法正确。H₀: ρ=1（存在单位根，序列非平稳）。'}],
+   answer:['C'],
+   analysis:'这道题问"错误的"。ADF 的拒绝域在左尾：临界值为负（如 −2.86），只有当检验统计量小于该临界值（更负）时才拒绝"存在单位根"，从而认为序列平稳。因此"t 统计量大于临界值就拒绝"的说法方向完全相反。',
+   k:['adf','unitRoot']},
+
+  {id:'6-5', type:'single', score:6.2,
+   stem:'在两变量 Engle-Granger 协整检验中，若变量均为一阶单整序列，对其回归得到的残差序列进行单位根检验时，若残差序列平稳，则可判断两变量（ ）。',
+   options:[
+    {k:'A', t:'不存在协整关系', why:'残差平稳恰恰是协整存在的证据，结论方向相反。'},
+    {k:'B', t:'存在协整关系', why:'正确。同阶单整变量回归残差平稳即为协整。'},
+    {k:'C', t:'存在格兰杰因果关系', why:'协整不推出格兰杰因果；因果需要另做格兰杰因果检验。'},
+    {k:'D', t:'不存在长期均衡关系', why:'协整的含义正是存在长期均衡关系，与题意相反。'}],
+   answer:['B'],
+   analysis:'EG 两步法：第一步用 OLS 估计长期方程，第二步对残差做单位根检验。若残差平稳，说明两变量的某个线性组合是平稳的，即存在协整（长期均衡）关系；此时可进一步建立误差修正模型刻画短期动态。',
+   k:['cointegration','ecm']},
+
+  {id:'6-6', type:'single', score:6.2,
+   stem:'进行格兰杰因果关系检验的前提条件是（ ）。',
+   options:[
+    {k:'A', t:'变量必须是平稳序列或存在协整关系', why:'正确。否则 F 检验会出现伪回归，结论无意义。'},
+    {k:'B', t:'变量必须是零阶单整序列', why:'过于严格：非平稳但存在协整关系时也可检验，不要求必须 I(0)。'},
+    {k:'C', t:'变量的回归残差必须存在自相关', why:'残差自相关是需要修正的问题，不是检验前提。'},
+    {k:'D', t:'变量必须存在确定性趋势', why:'有无确定性趋势与格兰杰因果检验的前提无关。'}],
+   answer:['A'],
+   analysis:'格兰杰因果检验通过比较"仅含 Y 自身滞后"与"再加入 X 的滞后"两个模型来检验 X 是否提升对 Y 的预测能力。前提是序列平稳，或非平稳但存在协整关系；否则 F 统计量的分布不成立，容易得到虚假的显著性。',
+   k:['granger','spurious']},
+
+  {id:'6-7', type:'multi', score:6.2,
+   stem:'时间序列模型存在序列相关性时，可能产生的后果包括：',
+   options:[
+    {k:'A', t:'参数估计量不再是无偏估计量', why:'错误。序列相关不破坏 OLS 的线性性与无偏性，仍满足 E(β̂)=β。'},
+    {k:'B', t:'参数估计量的方差估计不再有效', why:'正确。方差不再最小，且用常规公式估计的方差有偏（通常低估）。'},
+    {k:'C', t:'变量的显著性检验失去意义，容易得出错误的检验结论', why:'正确。标准误有偏导致 t、F 检验失真。'},
+    {k:'D', t:'模型的预测精度会下降', why:'正确。参数估计不精确，预测区间与预测值都会变差。'}],
+   answer:['B','C','D'],
+   analysis:'序列相关的后果与异方差相似：无偏性保留，有效性丧失，标准误有偏，检验失效，预测精度下降。因此在异方差与自相关下，OLS 依然"无偏但不有效"，修正方向是 GLS、广义差分或稳健/异方差自相关一致标准误（HAC）。',
+   k:['autocorr']},
+
+  {id:'6-8', type:'multi', score:6.2,
+   stem:'下列关于时间序列平稳性的说法，正确的有：',
+   options:[
+    {k:'A', t:'平稳时间序列要求序列的均值为常数，自协方差仅与时间间隔有关', why:'正确。这是宽平稳（协方差平稳）的定义。'},
+    {k:'B', t:'ADF 检验的原假设是时间序列存在单位根，即序列非平稳', why:'正确。H₀: 存在单位根。'},
+    {k:'C', t:'非平稳时间序列直接进行回归容易产生伪回归问题', why:'正确。可能出现高 R²、显著 t 值却毫无经济意义的虚假关系。'}],
+   answer:['A','B','C'],
+   analysis:'三项分别对应：平稳性的定义（均值常数、方差常数、自协方差只依赖间隔）、单位根检验的原假设方向、以及非平稳序列回归的风险。三者构成了时间序列建模"先检验平稳性"的基本逻辑。',
+   k:['unitRoot','adf','spurious']},
+
+  {id:'6-9', type:'multi', score:6.3,
+   stem:'下列关于协整关系的说法，正确的有（ ）。',
+   options:[
+    {k:'A', t:'协整关系描述的是变量之间长期稳定的均衡关系', why:'正确。协整意味着变量长期同向漂移、不会无限发散。'},
+    {k:'B', t:'存在协整关系的非平稳变量的线性组合是平稳的', why:'正确。这正是协整的定义。'},
+    {k:'C', t:'任意两个非平稳变量之间一定存在协整关系', why:'错误。"一定"不成立：多数非平稳变量之间并无协整，直接回归就是伪回归。'},
+    {k:'D', t:'协整检验的前提是被检验变量具有相同的单整阶数', why:'正确。常规协整检验（EG、JJ）要求变量同阶单整。'}],
+   answer:['A','B','D'],
+   analysis:'协整＝"非平稳变量的某个线性组合平稳"。它的存在需要同阶单整作为前提，但不是任意两个非平稳变量都能协整（C 的"一定"是典型错误）。存在协整时，回归不是伪回归，并可建立误差修正模型。',
+   k:['cointegration','ecm']},
+
+  {id:'6-10', type:'multi', score:6.3,
+   stem:'下列关于格兰杰因果检验的说法，正确的有（ ）。',
+   options:[
+    {k:'A', t:'只要拒绝原假设，就说明 Y 是 X 的格兰杰原因', why:'错误。检验方向要说清楚：检验"X→Y"时拒绝 H₀ 说明 X 是 Y 的格兰杰原因，不能反推 Y 是 X 的原因。'},
+    {k:'B', t:'格兰杰因果检验检验的是变量之间的预测能力，而非经济学意义上的因果关系', why:'正确。它只说明"滞后信息是否提升预测精度"。'},
+    {k:'C', t:'检验"X 是 Y 的格兰杰原因"时，原假设为"X 不是 Y 的格兰杰原因"', why:'正确。原假设即"无因果"。'},
+    {k:'D', t:'格兰杰因果检验不需要考虑变量的平稳性', why:'错误。序列必须平稳或存在协整关系，否则检验失效。'}],
+   answer:['B','C'],
+   analysis:'格兰杰因果是"预测意义"上的因果：在含 Y 自身滞后的模型中加入 X 的滞后，若显著提升解释力，则称 X 格兰杰引起 Y。它不等于经济学因果（可能由第三变量驱动），且必须以保证平稳性/协整为前提。',
+   k:['granger']},
+
+  {id:'6-11', type:'multi', score:6.3,
+   stem:'若对平稳序列 X 和 Y 进行格兰杰因果检验，原假设为"X 不是 Y 的格兰杰原因"，下列说法正确的有（ ）。',
+   options:[
+    {k:'A', t:'若检验的 p 值小于给定显著性水平，则拒绝原假设', why:'正确。这是通用的检验判定规则。'},
+    {k:'B', t:'若拒绝原假设，说明 X 的滞后值对 Y 的未来值有预测作用', why:'正确。这正是拒绝 H₀ 的经济含义。'},
+    {k:'C', t:'若不拒绝原假设，说明 X 和 Y 之间不存在任何相关关系', why:'错误。不拒绝只说明 X 的滞后不能提升对 Y 的预测，可能存在同期相关或其他形式的关联。'}],
+   answer:['A','B'],
+   analysis:'判定规则（A）与结论解读（B）都正确。C 的错误在于把"无格兰杰因果"扩大成"无任何关系"：不拒绝原假设只是证据不足，既可能是真的无预测力，也可能是样本、滞后阶数选择不当。',
+   k:['granger','pValue']},
+
+  {id:'6-12', type:'judge', score:6.3,
+   stem:'当时间序列模型存在序列相关性时，普通最小二乘估计量仍然是线性无偏的，但不再是有效估计量。',
+   options:[
+    {k:'A', t:'对', why:'正确。线性性与无偏性保留，有效性丧失。'},
+    {k:'B', t:'错', why:'该表述准确反映序列相关的后果，判"错"不对。'}],
+   answer:['A'],
+   analysis:'序列相关不改变 OLS 估计量的线性形式，也不改变其期望（无偏仍成立），但会使方差变大、且常规方差估计有偏，因而不再有效。这与异方差下的结论结构完全一致。',
+   k:['autocorr','heteroConseq']},
+
+  {id:'6-13', type:'judge', score:6.3,
+   stem:'如果两个时间序列都是非平稳的，那么它们之间的回归一定是伪回归，不存在真实的长期均衡关系。',
+   options:[
+    {k:'A', t:'对', why:'忽略了协整这一例外情形，把"容易"说成"一定"。'},
+    {k:'B', t:'错', why:'正确判断。若二者同阶单整且协整，回归反映真实长期均衡，不是伪回归。'}],
+   answer:['B'],
+   analysis:'非平稳序列直接回归"容易"产生伪回归，但不是"一定"。若两序列同阶单整且存在协整关系，它们的线性组合平稳，回归刻画的是真实的长期均衡关系，此时残差平稳、参数估计具有一致性（超一致）。',
+   k:['spurious','cointegration']},
+
+  {id:'6-14', type:'judge', score:6.3,
+   stem:'当两个时间序列都是二阶单整 I(2) 时，一定可以建立误差修正模型。',
+   options:[
+    {k:'A', t:'对', why:'把"同阶单整"误当成"协整"，跳过了必要的前提检验。'},
+    {k:'B', t:'错', why:'正确判断。ECM 的前提是存在协整关系，同阶单整只是必要条件。'}],
+   answer:['B'],
+   analysis:'误差修正模型刻画"长期均衡 + 短期调整"，其存在前提是变量之间存在协整关系。同阶单整只是做协整检验的前提条件，并不保证协整成立；若检验发现无协整，就不能建立 ECM（否则误差修正项无意义）。',
+   k:['ecm','cointegration']},
+
+  {id:'6-15', type:'judge', score:6.3,
+   stem:'检验随机误差项是否存在高阶序列相关，可以采用的方法包括图示法、DW 检验和 LM 检验。',
+   options:[
+    {k:'A', t:'对', why:'错在把 DW 检验也包括进来：DW 只能检验一阶自相关。'},
+    {k:'B', t:'错', why:'正确判断。高阶自相关应用 LM（Breusch-Godfrey）检验，DW 不适用。'}],
+   answer:['B'],
+   analysis:'DW 统计量的构造只涉及相邻两期残差 e_t 与 e_{t−1}，因此只能检验一阶自相关，无法识别高阶（如二阶、四阶）自相关。检验高阶自相关的标准方法是 Breusch-Godfrey LM 检验（也可配合残差自相关图判断）。原题把 DW 列入高阶检验手段，故该说法错误。',
+   k:['lmTest','dw','autocorr']},
+
+  {id:'6-16', type:'fill2', score:6.3,
+   stem:'如果一个时间序列的均值、方差和自协方差都不随时间推移而变化，则称该时间序列是＿＿(1)＿＿时间序列；若时间序列存在单位根，则该序列通常是＿＿(2)＿＿的。',
+   options:[],
+   blanks:[
+    {label:'(1)', answer:['平稳'], accept:['平稳','平稳时间序列','stationary']},
+    {label:'(2)', answer:['非平稳'], accept:['非平稳','非平稳序列','nonstationary']}
+   ],
+   analysis:'平稳（宽平稳）的定义就是均值、方差为常数且自协方差只与时间间隔有关。含单位根的序列（如随机游走 Y_t = Y_{t−1} + ε_t）方差随 t 增大而无界增长，故是非平稳序列，需差分后才能平稳。',
+   k:['unitRoot','adf']}
+  ]
+});
+</script>
+<script>
+/* ---------------- 应用逻辑 ---------------- */
+(function(){
+  'use strict';
+  var CH = window.__CH || [];
+  var KB = window.KB || {};
+  var TYPE_LABEL = {single:'单选题', multi:'多选题', judge:'判断题', fill:'填空题', fill2:'填空题', case:'综合分录题'};
+  var JUDGE_OPTS = [{k:'A',t:'对'},{k:'B',t:'错'}];
+
+  // ---- 状态 ----
+  var LS_KEY = 'econo-quiz-v1';
+  var state = {cur:0, ans:{}, revealed:{}};
+  function load(){
+    try{
+      var raw = window.localStorage.getItem(LS_KEY);
+      if(raw){ var o = JSON.parse(raw); if(o && typeof o==='object'){ state.ans=o.ans||{}; state.revealed=o.revealed||{}; if(typeof o.cur==='number') state.cur=o.cur; } }
+    }catch(e){}
+  }
+  function save(){
+    try{ window.localStorage.setItem(LS_KEY, JSON.stringify({ans:state.ans, revealed:state.revealed, cur:state.cur})); }catch(e){}
+  }
+
+  // ---- 工具 ----
+  function $(sel,root){ return (root||document).querySelector(sel); }
+  function el(tag, cls, html){ var d=document.createElement(tag); if(cls) d.className=cls; if(html!=null) d.innerHTML=html; return d; }
+  function norm(s){
+    return String(s==null?'':s).replace(/[\s\u3000]/g,'')
+      .replace(/[，。、；：？！（）【】“”‘’]/g,function(c){return {'，':',','。':'.','、':',','；':';','：':':','？':'?','！':'!','（':'(','）':')','【':'[','】':']','“':'"','”':'"','‘':"'",'’':"'"}[c]||c;})
+      .toLowerCase();
+  }
+  function eqKey(a,b){ return a.slice().sort().join('') === b.slice().sort().join(''); }
+  function scoreOf(q){ return q.score||0; }
+  function chapterMax(ch){ return ch.questions.reduce(function(s,q){return s+scoreOf(q);},0); }
+  function totalMax(){ return CH.reduce(function(s,c){return s+chapterMax(c);},0); }
+  function round(n){ return Math.round(n*10)/10; }
+
+  // ---- 判分 ----
+  function grade(q, a){
+    if(!a) return false;
+    if(q.type==='single' || q.type==='judge') return a.picked && a.picked.length===1 && q.answer.indexOf(a.picked[0])>=0;
+    if(q.type==='multi') return a.picked && a.picked.length>0 && eqKey(a.picked, q.answer);
+    if(q.type==='fill') return q.accept ? q.accept.some(function(x){return norm(x)===norm(a.value);}) : norm(q.answer[0])===norm(a.value);
+    if(q.type==='fill2') return q.blanks.every(function(b,i){ var v=(a.blanks||[])[i]; return v && b.accept.some(function(x){return norm(x)===norm(v);}); });
+    if(q.type==='case') return q.parts.every(function(p,i){ var v=(a.parts||[])[i]; return v && p.accept.some(function(x){return norm(x)===norm(v);}); });
+    return false;
+  }
+  function partRight(p, v){ return v && p.accept.some(function(x){return norm(x)===norm(v);}); }
+  function answered(q){ var a=state.ans[q.id]; if(!a) return false; if(q.type==='case') return (a.parts||[]).some(function(x){return x;}); return true; }
+  function isRevealed(ch, q){ return !!state.revealed[q.id]; }
+
+  // ---- 顶部导航 ----
+  function renderChips(){
+    var box=$('#chips'); box.innerHTML='';
+    CH.forEach(function(ch,i){
+      var b=el('button','chip');
+      b.type='button'; b.setAttribute('aria-pressed', i===state.cur?'true':'false');
+      b.innerHTML='<span class="n">'+ch.no+'</span>'+ch.title;
+      b.addEventListener('click', function(){ state.cur=i; save(); renderChips(); render(); window.scrollTo({top:0,behavior:'smooth'}); });
+      box.appendChild(b);
+    });
+  }
+  function renderGlobal(){
+    var total=0;
+    CH.forEach(function(ch){ ch.questions.forEach(function(q){ if(grade(q,state.ans[q.id])) total+=scoreOf(q); }); });
+    var max=totalMax();
+    $('#globalScore').innerHTML = round(total)+'<small style="font-size:13px;font-family:var(--font-mono)"> / '+max+'</small>';
+    var nAll=0, nAns=0;
+    CH.forEach(function(ch){ ch.questions.forEach(function(q){ nAll++; if(answered(q)) nAns++; }); });
+    $('#footStat').textContent = '已作答 '+nAns+' / '+nAll+' 题';
+  }
+
+  // ---- 反馈渲染 ----
+  function kpsOf(q){
+    var box=el('div','kps');
+    (q.k||[]).forEach(function(id){
+      var info=KB[id]; if(!info) return;
+      var b=el('button','kp'); b.type='button'; b.textContent=info.t;
+      var doc=el('div','kp-doc');
+      b.addEventListener('click', function(){
+        var open=b.getAttribute('aria-expanded')==='true';
+        b.setAttribute('aria-expanded', open?'false':'true');
+        doc.innerHTML='';
+        if(!open){
+          var c=el('div','kp-card');
+          c.innerHTML='<h5>'+info.t+'</h5><div class="ref">'+info.ref+'</div><p>'+info.d+'</p>';
+          doc.appendChild(c);
+        }
+      });
+      box.appendChild(b);
+      box.__doc = box.__doc || doc;
+    });
+    var wrap=el('div');
+    wrap.appendChild(box);
+    if(box.__doc) wrap.appendChild(box.__doc);
+    return wrap;
+  }
+
+  function feedback(q, a, opts){
+    var ok = grade(q,a);
+    var fb = el('div','fb '+(ok?'ok':'no'));
+    var g = el('div','fb-verdict');
+    g.innerHTML = ok ? '<span class="ic">✓</span>回答正确' : '<span class="ic">✕</span>回答错误';
+    fb.appendChild(g);
+
+    var keyTxt = '';
+    if(q.type==='fill') keyTxt = q.answer[0];
+    else if(q.type==='fill2') keyTxt = q.blanks.map(function(b,i){return '('+(i+1)+') '+b.answer[0];}).join('；');
+    else if(q.type==='case') keyTxt = '见下方各小题';
+    else keyTxt = q.answer.join('、');
+    var kline=el('div','fb-key','正确答案：<b>'+keyTxt+'</b>');
+    fb.appendChild(kline);
+
+    // 解析
+    var b1=el('div','fb-block'); b1.appendChild(el('h4',null,'解析'));
+    b1.appendChild(el('p',null,q.analysis||''));
+    fb.appendChild(b1);
+
+    // 选项辨析
+    var list = (q.type==='judge') ? JUDGE_OPTS : (q.options||[]);
+    if(list.length){
+      var b2=el('div','fb-block');
+      b2.appendChild(el('h4',null, ok?'其余选项为什么错':'错在哪里 · 各选项辨析'));
+      var ul=el('ul','why');
+      list.forEach(function(o){
+        var isRight = q.answer.indexOf(o.k)>=0;
+        var picked = a && a.picked && a.picked.indexOf(o.k)>=0;
+        var li=el('li', isRight?'is-right':(picked?'is-wrong':''));
+        var tag = isRight ? '<em class="g">正确答案</em>' : (picked ? '<em>你的选择</em>' : '');
+        li.innerHTML='<span class="kk">'+o.k+'</span><span><b>'+o.t+'</b>'+tag+'<br>'+(o.why||'')+'</span>';
+        ul.appendChild(li);
+      });
+      b2.appendChild(ul);
+      fb.appendChild(b2);
+    }
+
+    // 知识点
+    if((q.k||[]).length){
+      var b3=el('div','fb-block');
+      b3.appendChild(el('h4',null,'本题涉及的知识点'));
+      b3.appendChild(kpsOf(q));
+      fb.appendChild(b3);
+    }
+    if(opts && opts.partial){ fb.dataset.partial='1'; }
+    return fb;
+  }
+
+  // ---- 题目卡片 ----
+  function qCard(ch, q, idx){
+    var card=el('article','q'); card.id='q-'+q.id;
+    var head=el('div','q-head');
+    var gut=el('div','q-gutter');
+    gut.appendChild(el('div','num', String(idx+1).padStart(2,'0')));
+    var mk=el('div','mk'); gut.appendChild(mk);
+    head.appendChild(gut);
+
+    var body=el('div','q-body');
+    var meta=el('div','q-meta');
+    meta.appendChild(el('span','tag type', TYPE_LABEL[q.type]||'题目'));
+    meta.appendChild(el('span','tag pt', scoreOf(q)+' 分'));
+    body.appendChild(meta);
+    body.appendChild(el('div','stem', q.stem));
+
+    var a = state.ans[q.id];
+    var done = answered(q) && (q.type!=='case');
+    var revealed = isRevealed(ch,q);
+
+    if(q.type==='case'){
+      renderCase(body, q, a, revealed);
+    } else if(q.type==='single' || q.type==='multi' || q.type==='judge'){
+      var opts = (q.type==='judge') ? JUDGE_OPTS : q.options;
+      var multi = q.type==='multi';
+      var ul=el('ul','opts'+(q.type==='judge'?' judge':''));
+      var sel = (a && a.picked) ? a.picked.slice() : [];
+      opts.forEach(function(o){
+        var b=el('button','opt'); b.type='button';
+        b.innerHTML='<span class="k">'+o.k+'</span><span class="t">'+o.t+'</span>';
+        if(done || revealed){
+          b.disabled=true;
+          if(q.answer.indexOf(o.k)>=0) b.classList.add('right');
+          if(sel.indexOf(o.k)>=0 && q.answer.indexOf(o.k)<0) b.classList.add('wrong');
+          if(q.answer.indexOf(o.k)<0 && sel.indexOf(o.k)<0) b.classList.add('dim');
+        } else {
+          if(sel.indexOf(o.k)>=0) b.classList.add('sel');
+          b.addEventListener('click', function(){
+            if(multi){
+              var i=sel.indexOf(o.k);
+              if(i>=0) sel.splice(i,1); else sel.push(o.k);
+              b.classList.toggle('sel');
+              return;
+            }
+            state.ans[q.id]={picked:[o.k]};
+            save(); render(); renderGlobal();
+          });
+        }
+        ul.appendChild(b);
+      });
+      body.appendChild(ul);
+      if(multi && !done && !revealed){
+        var act=el('div','act');
+        var btn=el('button','btn primary','提交本题'); btn.type='button';
+        btn.addEventListener('click', function(){
+          if(!sel.length){ toast('请至少选择一项'); return; }
+          state.ans[q.id]={picked:sel.slice()}; save(); render(); renderGlobal();
+        });
+        act.appendChild(btn);
+        act.appendChild(el('span','note','多选题：全部选对才计分'));
+        body.appendChild(act);
+      }
+    } else if(q.type==='fill' || q.type==='fill2'){
+      renderFill(body, q, a, done||revealed, revealed);
+    }
+
+    head.appendChild(body);
+    card.appendChild(head);
+
+    // 反馈区
+    if(q.type!=='case' && (done || revealed)){
+      var fb=feedback(q, a);
+      if(revealed && !grade(q,a)){ fb.classList.remove('ok'); fb.classList.add('no'); }
+      card.appendChild(fb);
+      mk.classList.add(grade(q,a)?'ok':'no');
+      mk.textContent = grade(q,a)?'✓':'✕';
+    } else if(q.type==='case' && (done || revealed)){
+      mk.textContent='·';
+    }
+    if(revealed && !grade(q,a)){ mk.classList.add('no'); mk.textContent='✕'; }
+    return card;
+  }
+
+  function renderFill(body, q, a, done, revealed){
+    var blanks = (q.type==='fill2') ? q.blanks : [{label:'',answer:q.answer,accept:q.accept}];
+    var box=el('div','fills');
+    var inputs=[];
+    blanks.forEach(function(b,i){
+      var row=el('div','fill-row');
+      if(b.label) row.appendChild(el('label',null,b.label));
+      var inp=document.createElement('input');
+      inp.type='text'; inp.placeholder='填写答案'; inp.autocomplete='off';
+      inp.value = (a && ((a.blanks||[])[i] !== undefined ? a.blanks[i] : (i===0? (a.value||'') : ''))) || '';
+      if(done) inp.disabled=true;
+      inp.addEventListener('keydown', function(e){ if(e.key==='Enter') submit(); });
+      inputs.push(inp); row.appendChild(inp);
+      box.appendChild(row);
+    });
+    function submit(){
+      var vals=inputs.map(function(x){return x.value;});
+      if(vals.some(function(v){return !v.trim();})){ toast('请填写完整'); return; }
+      if(q.type==='fill2'){ state.ans[q.id]={blanks:vals}; }
+      else { state.ans[q.id]={value:vals[0], blanks:vals}; }
+      save(); render(); renderGlobal();
+    }
+    if(!done){
+      var act=el('div','act');
+      var btn=el('button','btn primary','提交本题'); btn.type='button';
+      btn.addEventListener('click', submit);
+      act.appendChild(btn);
+      act.appendChild(el('span','note', q.type==='fill2' ? '两空都答对才计分' : '允许同义表述，如"方差""方差σ²"'));
+      box.appendChild(act);
+    }
+    body.appendChild(box);
+  }
+
+  function renderCase(body, q, a, revealed){
+    if(q.commands){
+      var cm=el('div','cmds');
+      q.commands.forEach(function(c){ cm.appendChild(el('span',null,'<i>'+c[0]+'</i>'+c[1])); });
+      body.appendChild(cm);
+    }
+    if(q.stem2) body.appendChild(el('p','hint',q.stem2));
+    if(q.tables){
+      var tw=el('div','tables');
+      q.tables.forEach(function(t){
+        var d=el('div');
+        d.appendChild(el('div','tbl-cap',t.cap));
+        var w=el('div','tbl-wrap');
+        var html='<table><thead><tr>'+t.head.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>';
+        t.rows.forEach(function(r){ html+='<tr>'+r.map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>'; });
+        html+='</tbody></table>';
+        w.innerHTML=html;
+        d.appendChild(w);
+        d.appendChild(el('div','tbl-foot',t.foot));
+        tw.appendChild(d);
+      });
+      body.appendChild(tw);
+    }
+    var parts=el('div','parts');
+    q.parts.forEach(function(p,i){
+      var wrap=el('div','part');
+      wrap.appendChild(el('p','part-q','<b>'+p.n+'</b>'+p.stem));
+      var val=(a&&a.parts)?a.parts[i]:'';
+      var row=el('div','fill-row');
+      var inp=document.createElement('input'); inp.type='text'; inp.placeholder='填写答案'; inp.autocomplete='off'; inp.value=val||'';
+      var submitted = !!(a&&a.parts&&a.parts[i]);
+      if(submitted||revealed) inp.disabled=true;
+      row.appendChild(inp);
+      var btn=el('button','btn','提交'); btn.type='button';
+      function sub(){
+        if(!inp.value.trim()){ toast('请填写答案'); return; }
+        var arr=(state.ans[q.id]&&state.ans[q.id].parts)?state.ans[q.id].parts.slice():new Array(q.parts.length).fill('');
+        arr[i]=inp.value; state.ans[q.id]={parts:arr};
+        save(); render(); renderGlobal();
+      }
+      btn.addEventListener('click',sub);
+      inp.addEventListener('keydown',function(e){ if(e.key==='Enter') sub(); });
+      if(!submitted && !revealed) row.appendChild(btn);
+      wrap.appendChild(row);
+
+      if(submitted || revealed){
+        var right=partRight(p, val);
+        var f=el('div','part-fb '+(right?'ok':'no'));
+        f.appendChild(el('div','v', right?'✓ 正确':'✕ 错误'));
+        f.appendChild(el('div','ans','参考答案：'+p.answer[0]));
+        f.appendChild(el('p',null,p.analysis));
+        if((p.k||[]).length) f.appendChild(kpsOf(p));
+        wrap.appendChild(f);
+      }
+      parts.appendChild(wrap);
+    });
+    body.appendChild(parts);
+  }
+
+  // ---- 主渲染 ----
+  function render(){
+    var ch=CH[state.cur];
+    var main=$('#main'); main.innerHTML='';
+    if(!ch) return;
+
+    var head=el('section','chead');
+    var left=el('div'); left.appendChild(el('div','cno', ch.no)); 
+    var right=el('div');
+    right.appendChild(el('h2',null,ch.title));
+    right.appendChild(el('p','sub', ch.note));
+    var sl=el('div','scoreline');
+    var got=0, cnt=0;
+    ch.questions.forEach(function(q){ if(grade(q,state.ans[q.id])) got+=scoreOf(q); cnt++; });
+    sl.innerHTML='<div><b>'+round(got)+'</b><span>/ '+chapterMax(ch)+' 分</span></div>'
+      +'<div><b>'+cnt+'</b><span>题</span></div>'
+      +'<div><b>'+ch.questions.filter(function(q){return grade(q,state.ans[q.id]);}).length+'</b><span>已答对</span></div>'
+      +'<div><b style="font-size:14px;font-family:var(--font-body)">'+ch.raw+'</b></div>';
+    right.appendChild(sl);
+    var m=el('div','meter'); var i=el('i'); m.appendChild(i); right.appendChild(m);
+    head.appendChild(left); head.appendChild(right);
+    main.appendChild(head);
+
+    ch.questions.forEach(function(q,idx){ main.appendChild(qCard(ch,q,idx)); });
+    requestAnimationFrame(function(){ i.style.width=Math.min(100, got/chapterMax(ch)*100)+'%'; });
+
+    $('#btnReveal').textContent = ch.questions.every(function(q){return isRevealed(ch,q);}) ? '收起本章答案' : '查看本章答案';
+    save(); renderGlobal();
+  }
+
+  var toastT;
+  function toast(msg){
+    var t=$('#toast'); t.textContent=msg; t.classList.add('on');
+    clearTimeout(toastT); toastT=setTimeout(function(){ t.classList.remove('on'); },1800);
+  }
+
+  // ---- 顶栏动作 ----
+  function bindBar(){
+    $('#btnReveal').addEventListener('click', function(){
+      var ch=CH[state.cur];
+      var all=ch.questions.every(function(q){return isRevealed(ch,q);});
+      ch.questions.forEach(function(q){ if(all) delete state.revealed[q.id]; else state.revealed[q.id]=1; });
+      save(); render();
+      toast(all?'已收起答案':'已展开本章答案，未作答的题不计分');
+    });
+    $('#btnReset').addEventListener('click', function(){
+      var ch=CH[state.cur];
+      ch.questions.forEach(function(q){ delete state.ans[q.id]; delete state.revealed[q.id]; });
+      save(); render(); toast('已重置本章作答记录');
+    });
+  }
+
+  load(); renderChips(); bindBar(); render();
+})();
+</script>
+</body>
+</html>
